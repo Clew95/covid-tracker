@@ -1,0 +1,15 @@
+.landing {
+	@include fullscreen;
+	background: linear-gradient(to right bottom, rgba($color-secondary-dark, .8), rgba($color-secondary, .8)),
+		url('../images/landing-bg.jpg');
+
+	background-size: cover;
+	background-position: center bottom;
+
+	&__container {
+		@include absCenter;
+
+		text-align: center;
+		line-height: 2;
+	}
+}
