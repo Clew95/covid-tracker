@@ -1,0 +1,19 @@
+// ====================================
+// LETTER SPACING
+// ====================================
+.u-letterspacing {
+	letter-spacing: normal !important;
+
+	&--xs {
+		letter-spacing: .1rem;
+	}
+	&--s {
+		letter-spacing: .5rem;
+	}
+	&--l {
+		letter-spacing: 1.5rem;
+	}
+	&--xl {
+		letter-spacing: 2rem;
+	}
+}

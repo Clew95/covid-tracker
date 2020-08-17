@@ -1,7 +1,8 @@
 .landing {
 	@include fullscreen;
-	background: linear-gradient(to right bottom, rgba($color-secondary-dark, .8), rgba($color-secondary, .8)),
-		url('../images/landing-bg.jpg');
+	background: $color-secondary;
+	/*background: linear-gradient(to right bottom, rgba($color-secondary-dark, .8), rgba($color-secondary, .8)),
+		url('../images/landing-bg.jpg');*/
 
 	background-size: cover;
 	background-position: center bottom;
@@ -11,5 +12,13 @@
 
 		text-align: center;
 		line-height: 2;
+	}
+
+	&__auth {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		padding: 1rem 2rem;
 	}
 }

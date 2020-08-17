@@ -1,3 +1,9 @@
+@mixin fullwidth {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
 @mixin fullscreen {
 	position: relative;
 	width: 100vw;

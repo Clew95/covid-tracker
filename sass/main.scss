@@ -14,6 +14,11 @@
 @import 'components/buttons';
 
 //4] Layout
+@import 'layouts/navbar';
+@import 'layouts/sidebar';
+@import 'layouts/header';
+@import 'layouts/footer';
 
 //5] Pages
 @import 'pages/landing';
+@import 'pages/covid';

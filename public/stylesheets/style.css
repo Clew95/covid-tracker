@@ -122,6 +122,17 @@ body {
     .heading-primary--img > img {
       max-width: 100%; }
 
+.u-letterspacing {
+  letter-spacing: normal !important; }
+  .u-letterspacing--xs {
+    letter-spacing: .1rem; }
+  .u-letterspacing--s {
+    letter-spacing: .5rem; }
+  .u-letterspacing--l {
+    letter-spacing: 1.5rem; }
+  .u-letterspacing--xl {
+    letter-spacing: 2rem; }
+
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -176,17 +187,65 @@ body {
 
 .btn--tertiary {
   color: #f7f7f7;
-  background-color: #a8dadc; }
+  background-color: #11a1fd; }
 
 .btn--animated {
   animation: moveInLeft .5s ease-out .75s;
   animation-fill-mode: backwards; }
 
+.navbar {
+  position: relative;
+  width: 100%;
+  height: auto;
+  height: 55px;
+  background: #be4210; }
+  .navbar__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; }
+  .navbar__left {
+    flex: 1;
+    border: 1px solid orangered;
+    text-align: left; }
+  .navbar__center {
+    flex: 1;
+    border: 1px solid yellow;
+    text-align: center; }
+  .navbar__right {
+    flex: 1;
+    border: 1px solid green;
+    text-align: right; }
+  .navbar__icon {
+    padding: .5rem 1rem;
+    font-size: 2rem; }
+
+.sidebar__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px; }
+
+.sidebar__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2.5rem; }
+  .sidebar__logo--icon {
+    padding: .5rem 1rem;
+    font-size: 2.25rem; }
+  .sidebar__logo--text {
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase; }
+
 .landing {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to right bottom, rgba(199, 201, 198, 0.8), rgba(241, 250, 238, 0.8)), url("../images/landing-bg.jpg");
+  background: #f1faee;
+  /*background: linear-gradient(to right bottom, rgba($color-secondary-dark, .8), rgba($color-secondary, .8)),
+		url('../images/landing-bg.jpg');*/
   background-size: cover;
   background-position: center bottom; }
   .landing__container {
@@ -196,3 +255,21 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     line-height: 2; }
+  .landing__auth {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem 2rem; }
+
+#root {
+  display: flex;
+  position: relative;
+  color: #eee; }
+  #root .sidebar {
+    position: fixed;
+    height: 100%;
+    width: 30rem;
+    background: #025e97; }
+  #root .main {
+    width: 100%;
+    margin-left: 30rem; }
