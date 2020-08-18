@@ -2,7 +2,13 @@
 	@include fullwidth;
 
 	height: 55px;
-	background: $color-primary-dark;
+
+	color: $color-grey-dark-3;
+	background: $color-secondary-light;
+
+	font-size: 2rem;
+
+	box-shadow: 0 .1rem .2rem -.1rem rgba(0, 0, 0, .2);
 	&__content {
 		display: flex;
 		justify-content: space-between;
@@ -12,25 +18,14 @@
 
 	&__left {
 		flex: 1;
-		border: 1px solid orangered;
-
 		text-align: left;
 	}
 	&__center {
 		flex: 1;
-		border: 1px solid yellow;
-
 		text-align: center;
 	}
 	&__right {
 		flex: 1;
-		border: 1px solid green;
-
 		text-align: right;
-	}
-
-	&__icon {
-		padding: .5rem 1rem;
-		font-size: 2rem;
 	}
 }
