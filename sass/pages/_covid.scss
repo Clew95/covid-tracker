@@ -3,22 +3,25 @@
 	position: relative;
 
 	color: $color-white; //TEST
+}
 
-	& .sidebar {
-		position: fixed;
-		height: 100%;
-		width: 30rem;
-		background: $color-tertiary-dark;
+.main {
+	width: 100%;
+	margin-left: 30rem;
+
+	transition: all .5s ease-in-out;
+
+	&--full {
+		margin-left: 0;
 	}
+}
 
-	& .main {
-		width: 100%;
-		margin-left: 30rem;
+.stats {
+	display: inline-block;
+	width: 100%;
+	height: auto;
 
-		transition: all .5s ease-in-out;
-
-		&--full {
-			margin-left: 0;
-		}
-	}
+	//test
+	color: black;
+	background: orange;
 }

@@ -1,5 +1,8 @@
 .sidebar {
-
+	position: fixed;
+	height: 100%;
+	width: 30rem;
+	background: $color-tertiary-dark;
 	transition: all .5s ease-in-out;
 
 	&__header {
@@ -7,7 +10,6 @@
 		justify-content: center;
 		align-items: center;
 		height: 55px;
-
 	}
 	&__logo {
 		display: flex;
@@ -26,24 +28,41 @@
 		}
 	}
 
-	&__stats {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
+	&__menu {
 		font-size: 1.5rem;
 		&--list {
 			margin-top: 2.5rem;
+			text-align: center;
+		}
+		&--title {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+
+			text-align: left;
+			padding: .5rem 1rem;
+
+			& > i {
+				margin-left: .75rem;
+				font-size: 1.75rem;
+			}
 		}
 
 		&--item {
-			margin: .5rem 0;
+			padding: .5rem 2rem;
+			background: $color-alternative-2;
 			color: $color-secondary-light;
+			transition: all .25s ease-in-out;
+
+			&:hover {
+				background: $color-secondary;
+				color: $color-alternative-2;
+			}
 		}
 	}
 
 	/*To Hidebar*/
-	&--hide{
+	&--hide {
 		margin-left: -30rem;
 	}
 }

@@ -7,9 +7,16 @@
 }
 
 html,
-body {
+body,
+li {
 	margin: 0;
 	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	font-size: inherit;
 }
 
 ul {
