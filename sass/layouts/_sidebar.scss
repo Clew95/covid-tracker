@@ -1,9 +1,13 @@
 .sidebar {
+
+	transition: all .5s ease-in-out;
+
 	&__header {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 55px;
+
 	}
 	&__logo {
 		display: flex;
@@ -36,5 +40,10 @@
 			margin: .5rem 0;
 			color: $color-secondary-light;
 		}
+	}
+
+	/*To Hidebar*/
+	&--hide{
+		margin-left: -30rem;
 	}
 }
