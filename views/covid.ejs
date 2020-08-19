@@ -3,22 +3,32 @@
 
     <%- include("partials/sidebar") %>
     <main class="main main--full">
-        <%- include("partials/navbar") %>   
+        <%- include("partials/navbar") %>
         <section class="stats">
+            <h3 class="heading-tertiary">Overview</h3>
             <div class="stats__container">
-                <h3 class="heading-tertiary stats__h3">Overview</h3>
-                <div class="stats-card__container">
-                    <div class="stats-card__content stats-card__1-of-3">
-                        <div class="stats-card--title">Tamponi</div>
-                        <div class="stats-card--data">1.951.145</div>
+                <div class="stats__box">
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Casi Totali</h4>
+                        <p class="card__data" id="casiTotali">256.023</p>
                     </div>
-                    <div class="stats-card__content stats-card__1-of-3">
-                        <div class="stats-card--title">Casi Testati</div>
-                        <div class="stats-card--data">716.345</div>
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Casi Attivi</h4>
+                        <p class="card__data" id="casiAttivi">16.854</p>
                     </div>
-                    <div class="stats-card__content stats-card__1-of-3">
-                        <div class="stats-card--title">Positivi per Tamponi</div>
-                        <div class="stats-card--data">1.5%</div>
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Tamponi <i class="fas fa-vial"></i></h4>
+                        <p class="card__data" id="tamponi">1.154.581</p>
+                    </div>
+                </div>
+                <div class="stats__box">
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Guariti</h4>
+                        <p class="card__data" id="casiTotali">232.937</p>
+                    </div>
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Morti</h4>
+                        <p class="card__data" id="casiAttivi">35.127</p>
                     </div>
                 </div>
             </div>

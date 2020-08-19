@@ -15,9 +15,19 @@
 }
 
 .stats {
-	display: inline-block;
-	width: 100%;
-	height: auto;
+	width: 75%;
+	height: 100%;
+	background: rgba($color-basic, .3);
 
-	color: $color-primary-dark;
+	&__container {
+		text-align: center;
+	}
+
+	&__box {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		margin: 1rem;
+	}
 }
