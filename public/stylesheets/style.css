@@ -131,6 +131,14 @@ body {
     .heading-primary--img > img {
       max-width: 100%; }
 
+.heading-tertiary {
+  color: #333;
+  font-size: 3.5rem;
+  font-weight: 400;
+  backface-visibility: hidden;
+  margin-bottom: 2rem;
+  line-height: 1.2; }
+
 .u-letterspacing {
   letter-spacing: normal !important; }
   .u-letterspacing--xs {
@@ -256,6 +264,29 @@ body {
     .hamburger__line:nth-last-child(2) {
       transform-origin: 0% 100%; }
 
+.stats-card__container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1rem; }
+
+.stats-card__content {
+  margin: 0 5%;
+  text-align: center;
+  background: #eee;
+  box-shadow: 0.1rem 0.1rem 0.25rem rgba(17, 17, 17, 0.25);
+  flex: 1; }
+
+.stats-card--title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase; }
+
+.stats-card--data {
+  font-size: 1.5rem;
+  font-weight: 400; }
+
 .navbar {
   position: relative;
   width: 100%;
@@ -284,6 +315,7 @@ body {
   position: fixed;
   height: 100%;
   width: 30rem;
+  color: #eee;
   background: #025e97;
   transition: all .5s ease-in-out;
   /*To Hidebar*/ }
@@ -353,8 +385,7 @@ body {
 
 #root {
   display: flex;
-  position: relative;
-  color: #eee; }
+  position: relative; }
 
 .main {
   width: 100%;
@@ -367,5 +398,4 @@ body {
   display: inline-block;
   width: 100%;
   height: auto;
-  color: black;
-  background: orange; }
+  color: #be4210; }

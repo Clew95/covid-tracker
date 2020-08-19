@@ -1,8 +1,6 @@
 #root {
 	display: flex;
 	position: relative;
-
-	color: $color-white; //TEST
 }
 
 .main {
@@ -21,7 +19,5 @@
 	width: 100%;
 	height: auto;
 
-	//test
-	color: black;
-	background: orange;
+	color: $color-primary-dark;
 }
