@@ -6,6 +6,11 @@
 	background: $color-tertiary-dark;
 	transition: all .5s ease-in-out;
 
+	@include respond(tab-port) {
+		margin-top: 55px;
+		width: 100%;
+	}
+
 	&__header {
 		display: flex;
 		justify-content: center;
@@ -65,5 +70,9 @@
 	/*To Hidebar*/
 	&--hide {
 		margin-left: -30rem;
+
+		@include respond(tab-port) {
+			margin-left: -100%;
+		}
 	}
 }

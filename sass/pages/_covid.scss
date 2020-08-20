@@ -9,15 +9,23 @@
 
 	transition: all .5s ease-in-out;
 
+	@include respond(tab-port) {
+		margin-left: 0;
+	}
+
 	&--full {
 		margin-left: 0;
 	}
 }
 
 .stats {
-	width: 75%;
+	width: 50%;
 	height: 100%;
 	background: rgba($color-basic, .3);
+
+	@include respond(tab-port) {
+		width: 100%;
+	}
 
 	&__container {
 		text-align: center;
