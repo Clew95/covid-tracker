@@ -19,9 +19,12 @@
 }
 
 .stats {
-	width: 50%;
+	width: 70%;
 	height: 100%;
-	background: rgba($color-basic, .3);
+	background: linear-gradient(to right bottom, rgba($color-basic, .85), rgba($color-basic, .85)),
+		url('../images/covid_overview-bg.jpg');
+	background-size: cover;
+	background-position: top right;
 
 	@include respond(tab-port) {
 		width: 100%;

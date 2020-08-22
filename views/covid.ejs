@@ -5,33 +5,48 @@
     <main class="main main--full">
         <%- include("partials/navbar") %>
         <section class="stats">
-            <h3 class="heading-tertiary">Overview</h3>
+            <h3 class="heading-tertiary u-padding-left-m u-padding-top-s">Overview</h3>
             <div class="stats__container">
                 <div class="stats__box">
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Totali <i class="fas fa-viruses"></i></h4>
-                        <p class="card__data" id="casiTotali">256.023</p>
+                        <p class="card__data" id="totale_casi"><%= data.totale_casi %></p>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Attivi <i class="fas fa-virus"></i></h4>
-                        <p class="card__data" id="casiAttivi">16.854</p>
+                        <p class="card__data" id="totale_positivi"><%= data.totale_positivi %></p>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Tamponi <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="tamponi">1.154.581</p>
+                        <p class="card__data" id="tamponi"><%= data.tamponi %></p>
                     </div>
                 </div>
                 <div class="stats__box">
                     <div class="card card--flexfull">
                         <h4 class="card__title">Guariti <i class="fas fa-heartbeat"></i></h4>
-                        <p class="card__data" id="casiTotali">232.937</p>
+                        <p class="card__data" id="dimessi_guariti"><%= data.dimessi_guariti %></p>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Morti <i class="fas fa-cross"></i></h4>
-                        <p class="card__data" id="casiAttivi">35.127</p>
+                        <p class="card__data" id="deceduti"><%= data.deceduti %> </p>
+                    </div>
+                </div>
+                <div class="stats__box">
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Nuovi Positivi <i class="fas fa-user-plus"></i></h4>
+                        <p class="card__data" id="nuovi_positivi"><%= data.nuovi_positivi %></p>
                     </div>
                 </div>
             </div>
+
+            <span class="u-margin-left-m">Ultimo aggiornamento <%= data.data %> </span>
+        </section>
+        <section class="news">
+            <ul>
+                <%  for(let key in data) { %>
+                <li><%=key + ': ' + data[key]%></li>
+                <% } %>
+            </ul>
         </section>
     </main>
 </div>
