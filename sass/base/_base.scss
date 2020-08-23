@@ -26,3 +26,17 @@ body {
 	background-color: $color-primary;
 	color: $color-white;
 }
+
+//ScrollBar
+*::-webkit-scrollbar {
+	width: .5rem;
+}
+
+
+*::-webkit-scrollbar-track {
+	background: $color-tertiary-dark;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: $color-secondary-light;
+}
