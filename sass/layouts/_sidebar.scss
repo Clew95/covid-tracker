@@ -4,7 +4,9 @@
 	width: 30rem;
 	color: $color-white;
 	background: $color-tertiary-dark;
+
 	transition: all .5s ease-in-out;
+	z-index: 9999;
 
 	@include respond(tab-port) {
 		margin-top: 55px;
@@ -73,6 +75,12 @@
 
 		@include respond(tab-port) {
 			margin-left: -100%;
+		}
+	}
+
+	&--scroll {
+		@include respond(tab-port) {
+			margin-top: 0;
 		}
 	}
 }

@@ -1,6 +1,6 @@
 .navbar {
 	@include fullwidth;
-		height: 55px;
+	height: 55px;
 
 	color: $color-grey-dark-3;
 	background: $color-secondary-light;
@@ -8,6 +8,11 @@
 	font-size: 2rem;
 
 	box-shadow: 0 .1rem .2rem -.1rem rgba(0, 0, 0, .2);
+
+	@include respond(tab-port) {
+		position: fixed;
+	}
+
 	&__content {
 		display: flex;
 		justify-content: space-between;

@@ -82,14 +82,12 @@ body {
 }
 
 .span {
-	
-	
 	&--info {
 		color: $color-primary-dark;
 		font-size: 1.3rem;
 	}
 
-	&--last_update{
+	&--last_update {
 		color: $color-grey-dark-3;
 		font-size: 1.4rem;
 	}
@@ -119,5 +117,4 @@ body {
 			animation: decremento 1s infinite;
 		}
 	}
- 		
 }

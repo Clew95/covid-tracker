@@ -32,3 +32,10 @@ function sidebarToggler() {
 }
 
 // ************************************************************* //
+
+// ====================
+// navbarTogglerOnScroll
+// ====================
+/**
+ * Function to toggle navbar when scroll up/down. Manage also the sidebar.
+ */
