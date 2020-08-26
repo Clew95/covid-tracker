@@ -22,12 +22,6 @@ router.get('/', (req, res) => {
 					parseInt(DATA_BUNCH[TODAY]['variazione_totale_positivi']) > 0 ? true : false
 			};
 
-			for (let key in DATA_BUNCH[TODAY]) {
-				if (DATA_BUNCH[TODAY][key] && dataManager.isANumber(DATA_BUNCH[TODAY][key])) {
-					DATA_BUNCH[TODAY][key] = dataManager.numberWithCommas(DATA_BUNCH[TODAY][key]);
-				}
-			}
-
 			res.render('covid', { baseUrl: req.baseUrl, data: DATA_BUNCH, settings: DATA_SETTINGS });
 		});
 });

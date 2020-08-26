@@ -180,6 +180,10 @@ body {
   transform: translateY(0); }
   .span--incremento__animated {
     animation: incremento 1s infinite; }
+  .span--incremento__numero {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: inherit; }
 
 .span--decremento {
   color: #9ad8fe;
@@ -188,6 +192,10 @@ body {
   transform: translateY(-10px); }
   .span--decremento__animated {
     animation: decremento 1s infinite; }
+  .span--decremento__numero {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: inherit; }
 
 .u-letterspacing {
   letter-spacing: normal !important; }
@@ -470,7 +478,8 @@ body {
   box-shadow: 0 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.2); }
   @media only screen and (max-width: 56.25em) {
     .navbar {
-      position: fixed; } }
+      position: fixed;
+      z-index: 9999; } }
   .navbar__content {
     display: flex;
     justify-content: space-between;
@@ -585,7 +594,6 @@ body {
 
 .stats {
   width: 100%;
-  height: 100%;
   background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.85), rgba(174, 198, 214, 0.85)), url("../images/covid_overview-bg.jpg");
   background-size: cover;
   background-position: top right; }
@@ -599,3 +607,8 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 1rem; }
+
+.charts__container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem 3rem; }

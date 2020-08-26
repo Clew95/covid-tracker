@@ -11,6 +11,7 @@
 
 	@include respond(tab-port) {
 		position: fixed;
+		z-index: 9999;
 	}
 
 	&__content {

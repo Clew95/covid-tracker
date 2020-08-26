@@ -103,6 +103,13 @@ body {
 		&__animated {
 			animation: incremento 1s infinite;
 		}
+
+		&__numero {
+			font-size: 1.1rem;
+			font-weight: 500;
+
+			color: inherit;
+		}
 	}
 
 	&--decremento {
@@ -115,6 +122,13 @@ body {
 
 		&__animated {
 			animation: decremento 1s infinite;
+		}
+
+		&__numero {
+			font-size: 1.1rem;
+			font-weight: 500;
+
+			color: inherit;
 		}
 	}
 }

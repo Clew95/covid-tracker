@@ -1,3 +1,4 @@
+<% const lastUpdate = data[data.length-1] %>
 <%- include("partials/head") %>
 <div id="root">
 
@@ -10,23 +11,23 @@
                 <div class="stats__box">
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Totali <i class="fas fa-viruses"></i></h4>
-                        <p class="card__data" id="totale_casi"><%= data[data.length-1].totale_casi %></p>
+                        <p class="card__data" id="totale_casi"><%= lastUpdate.totale_casi %></p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> I casi totali è il numero che indica quante persone sono state contagiate in Italia dall'inizio della pandemia sino ad oggi</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Attivi <i class="fas fa-virus"></i></h4>
-                        <p class="card__data" id="totale_positivi"><%= data[data.length-1].totale_positivi %>
+                        <p class="card__data" id="totale_positivi"><%= lastUpdate.totale_positivi %>
                             <% if(settings.incremento_attualmente_positivi)  { %>
-                                <span class="span--incremento"><i class="fas fa-arrow-up  span--incremento__animated"></i></span>
+                                <span class="span--incremento"><span class="span--incremento__numero"> +<%= lastUpdate.variazione_totale_positivi %></span> <i class="fas fa-arrow-up  span--incremento__animated"></i></span>
                             <% } else { %>
-                                <span class="span--decremento"><i class="fas fa-arrow-down  span--decremento__animated" ></i></span>
+                                <span class="span--decremento"><span class="span--decremento__numero"> +<%= lastUpdate.variazione_totale_positivi %></span> <i class="fas fa-arrow-down  span--decremento__animated" ></i></span>
                             <% } %>
                         </p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> Indica il numero degli attualmente positivi. Per calcolare gli attualmente positivi basta effettuare una semplice operazione: <br> CASI ATTIVI = CASI TOTALI - (GUARITI + MORTI)</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Nuovi Positivi <i class="fas fa-user-plus"></i></h4>
-                        <p class="card__data" id="nuovi_positivi"><%= data[data.length-1].nuovi_positivi %> 
+                        <p class="card__data" id="nuovi_positivi"><%= lastUpdate.nuovi_positivi %> 
                             <% if(settings.incremento_nuovi_positivi)  { %>
                                 <span class="span--incremento"><i class="fas fa-arrow-up  span--incremento__animated"></i></span>
                             <% } else { %>
@@ -39,12 +40,12 @@
                 <div class="stats__box">
                     <div class="card card--flexfull">
                         <h4 class="card__title">Guariti <i class="fas fa-heartbeat"></i></h4>
-                        <p class="card__data" id="dimessi_guariti"><%= data[data.length-1].dimessi_guariti %></p>
+                        <p class="card__data" id="dimessi_guariti"><%= lastUpdate.dimessi_guariti %></p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> «Il paziente guarito è colui che ha superato i sintomi da Covid-19 e che risulta negativo a due test consecutivi per la ricerca di Sars-CoV-2» Dunque, una paziente si definisce guarito completamente se risulta negativo a 2 tamponi consecutivamente e ripetuti a distanza di almeno 24 ore l'uno dall'altro</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Morti <i class="fas fa-cross"></i></h4>
-                        <p class="card__data" id="deceduti"><%= data[data.length-1].deceduti %> </p>
+                        <p class="card__data" id="deceduti"><%= lastUpdate.deceduti %> </p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> Numero dei decessi per Covid e con
                             Covid. <br> <strong>CON Covid:</strong> Vuol dire che, in aggiunta ad altre patologie, il
                             Covid ha avuto un impatto decisivo nella morte di quella persona. <br> <strong>PER
@@ -55,25 +56,25 @@
                 <div class="stats__box">
                     <div class="card card--flexfull">
                         <h4 class="card__title">Tamponi <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="tamponi"><%= data[data.length-1].tamponi %></p>
+                        <p class="card__data" id="tamponi"><%= lastUpdate.tamponi %></p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> É il numero dei tamponi processati. Questo numero comprende anche i tamponi ripetuti su una persona per verificare se guarito completamente dal Covid</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Testati <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="casi_testati"><%= data[data.length-1].casi_testati %></p>
+                        <p class="card__data" id="casi_testati"><%= lastUpdate.casi_testati %></p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> Il numero dei casi testati ci dice
                             quante persone sono state sottoposte ad almeno 1 tampone.</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title"> Sospetti Diagnostici <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="casi_da_sospetto_diagnostico"><%= data[data.length-1].casi_da_sospetto_diagnostico %>
+                        <p class="card__data" id="casi_da_sospetto_diagnostico"><%= lastUpdate.casi_da_sospetto_diagnostico %>
                         </p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> I sospetti diagnostici sono quei
                             positivi che hanno effettuato un tampone solo dopo aver avuto sintomatologie da Covid</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Da Screening <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="casi_da_screening"><%= data[data.length-1].casi_da_screening %></p>
+                        <p class="card__data" id="casi_da_screening"><%= lastUpdate.casi_da_screening %></p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> I casi da screening sono quei
                             positivi che hanno effettuato test sierologici e tamponi in semplici screening di controllo.
                             La maggiorparte asintomatici</span>
@@ -82,10 +83,42 @@
             </div>
 
             <span class="span--last_update u-margin-left-m">Ultimo aggiornamento
-                <%= data[data.length-1].data.slice(0, data[data.length-1].data.lastIndexOf('T')) + ' alle ore: ' + data[data.length-1].data.slice(data[data.length-1].data.lastIndexOf('T') + 1, data[data.length-1].data.length -3 ) %>
+                <%= lastUpdate.data.slice(0, lastUpdate.data.lastIndexOf('T')) + ' alle ore: ' + lastUpdate.data.slice(lastUpdate.data.lastIndexOf('T') + 1, lastUpdate.data.length -3 ) %>
             </span>
-        </section>  
+        </section> 
+
+        <div class="divider u-margin-top-m u-margin-bottom-l"></div>
+
+        <section class="charts">
+
+            <h3 class="heading-tertiary u-padding-left-m u-padding-top-l u-padding-top-l">Grafici</h3>
+            <div class="charts__container">
+                    <canvas id="sampleChart"></canvas>
+            </div>
+        </section>
     </main>
 </div>
 
+<script>
+    function initObj(obj){
+        let tmpObj  = {}
+        if(typeof obj === 'object'){
+            for(let key in obj) {
+                tmpObj[key] = [];
+            } 
+        }
+        return tmpObj;
+    }   
+
+    const reqData = <%- JSON.stringify(data) %>;
+    const covidData = initObj(reqData[reqData.length-1]);
+    reqData.forEach(objData => {
+        for(let key in objData) {
+            if(key === 'data'){
+                objData['data'] = objData['data'].slice(0, objData['data'].lastIndexOf('T'));
+            }
+            covidData[key].push(objData[key])
+        }    
+    });
+</script>
 <%- include("partials/tail") %>

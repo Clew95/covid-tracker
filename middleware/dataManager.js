@@ -1,5 +1,3 @@
-const { data } = require('autoprefixer');
-
 let dataManager = {};
 
 //This is a funciton to covert
