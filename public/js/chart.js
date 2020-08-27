@@ -3,9 +3,11 @@ let totaleCasi = document.getElementById('totaleCasi').getContext('2d'),
 	nuoviPositiviSettimanale = document.getElementById('nuoviPositivi--settimanale').getContext('2d'),
 	totalePositivi = document.getElementById('totalePositivi').getContext('2d');
 
+Chart.defaults.scale.gridLines.drawOnChartArea = false;
+
 let chartTotaleCasi = new Chart(totaleCasi, {
-	type : 'line',
-	data : {
+	type    : 'line',
+	data    : {
 		labels   : covidData['data'],
 		datasets : [
 			{
@@ -15,12 +17,15 @@ let chartTotaleCasi = new Chart(totaleCasi, {
 				borderColor     : '#fc747f'
 			}
 		]
+	},
+	options : {
+		maintainAspectRatio : false
 	}
 });
 
 let chartTotalePositivi = new Chart(totalePositivi, {
-	type : 'bar',
-	data : {
+	type    : 'bar',
+	data    : {
 		labels   : covidData['data'],
 		datasets : [
 			{
@@ -38,12 +43,15 @@ let chartTotalePositivi = new Chart(totalePositivi, {
 				}
 			}
 		]
+	},
+	options : {
+		maintainAspectRatio : false
 	}
 });
 
 let chartNuoviPositivi = new Chart(nuoviPositivi, {
-	type : 'bar',
-	data : {
+	type    : 'bar',
+	data    : {
 		labels   : covidData['data'],
 		datasets : [
 			{
@@ -61,12 +69,15 @@ let chartNuoviPositivi = new Chart(nuoviPositivi, {
 				}
 			}
 		]
+	},
+	options : {
+		maintainAspectRatio : false
 	}
 });
 
 let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
-	type : 'bar',
-	data : {
+	type    : 'bar',
+	data    : {
 		labels   : weeklyData['data'],
 		datasets : [
 			{
@@ -84,5 +95,8 @@ let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
 				}
 			}
 		]
+	},
+	options : {
+		maintainAspectRatio : false
 	}
 });

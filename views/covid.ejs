@@ -94,25 +94,25 @@
             <h3 class="heading-tertiary u-padding-left-m u-padding-top-l u-padding-top-l">Grafici</h3>
             <div class="charts__container">
                 <div class="chart__box">
-                    <canvas id="totaleCasi"></canvas>
+                    <canvas class="u-canvas-h-400" id="totaleCasi"></canvas>
                 </div>
             </div>
 
             <div class="charts__container">
                 <div class="chart__box">
-                    <canvas id="totalePositivi"></canvas>
+                    <canvas class="u-canvas-h-400 " id="totalePositivi"></canvas>
                 </div>
             </div>
             
             <div class="charts__container">
                 <div class="chart__box">
-                    <canvas id="nuoviPositivi"></canvas>
+                    <canvas class="u-canvas-h-400" id="nuoviPositivi"></canvas>
                 </div>
             </div>
 
             <div class="charts__container">
                 <div class="chart__box">
-                    <canvas id="nuoviPositivi--settimanale"></canvas>
+                    <canvas class="u-canvas-h-400" id="nuoviPositivi--settimanale"></canvas>
                 </div>
             </div>
 
@@ -138,7 +138,7 @@
     reqData.forEach(objData => {
         for(let key in objData) {
             if(key === 'data'){
-                objData['data'] = objData['data'].slice(0, objData['data'].lastIndexOf('T'));
+                objData['data'] = objData['data'].slice(5, objData['data'].lastIndexOf('T'));
             }
             covidData[key].push(objData[key])
         }    
@@ -162,7 +162,8 @@
     }
 
     for(let idx = 0; idx < weeklyData['data'].length; idx ++){
-        weeklyData['data'][idx] = weeklyData['data'][idx].slice(1,11) + ' al ' +  weeklyData['data'][idx].slice(-10);
+        //weeklyData['data'][idx] = weeklyData['data'][idx].slice(1,11) + ' al ' +  weeklyData['data'][idx].slice(-10);
+        weeklyData['data'][idx] = 'Week ' + (idx+1);
     }
 
 
