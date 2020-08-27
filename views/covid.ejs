@@ -93,8 +93,29 @@
 
             <h3 class="heading-tertiary u-padding-left-m u-padding-top-l u-padding-top-l">Grafici</h3>
             <div class="charts__container">
-                    <canvas id="sampleChart"></canvas>
+                <div class="chart__box">
+                    <canvas id="totaleCasi"></canvas>
+                </div>
             </div>
+
+            <div class="charts__container">
+                <div class="chart__box">
+                    <canvas id="totalePositivi"></canvas>
+                </div>
+            </div>
+            
+            <div class="charts__container">
+                <div class="chart__box">
+                    <canvas id="nuoviPositivi"></canvas>
+                </div>
+            </div>
+
+            <div class="charts__container">
+                <div class="chart__box">
+                    <canvas id="nuoviPositivi--settimanale"></canvas>
+                </div>
+            </div>
+
         </section>
     </main>
 </div>
@@ -112,6 +133,8 @@
 
     const reqData = <%- JSON.stringify(data) %>;
     const covidData = initObj(reqData[reqData.length-1]);
+    const weeklyData = initObj(reqData[reqData.length-1]);
+
     reqData.forEach(objData => {
         for(let key in objData) {
             if(key === 'data'){
@@ -120,5 +143,28 @@
             covidData[key].push(objData[key])
         }    
     });
+
+    for(let key in covidData) {
+        let count = 0;
+        let accumulatore = 0;
+
+        covidData[key].forEach(element => {
+            if (count < 7 && element) {
+                count++;
+                accumulatore += element;
+            }
+            else {
+                count = 0;
+                weeklyData[key].push(accumulatore);
+                accumulatore = 0;
+            }            
+        });
+    }
+
+    for(let idx = 0; idx < weeklyData['data'].length; idx ++){
+        weeklyData['data'][idx] = weeklyData['data'][idx].slice(1,11) + ' al ' +  weeklyData['data'][idx].slice(-10);
+    }
+
+
 </script>
 <%- include("partials/tail") %>
