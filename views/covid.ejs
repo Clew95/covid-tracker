@@ -110,7 +110,15 @@
                     <canvas id="nuoviPositivi"></canvas>
                 </div>
             </div>
-            
+
+            <div class="charts__container">
+                <h3 class="heading-tertiary">Tamponi</h3>
+                <div class="chart__box">
+                    <canvas id="chartTamponi"></canvas>
+                </div>
+            </div>
+
+            <h2 class="heading-secondary u-padding-left-m u-padding-top-xs">Andamenti Settimanali</h3>
             <div class="charts__container">
                 <h3 class="heading-tertiary">Nuovi Positivi - Settimanale</h3>
                 <div class="chart__box">
@@ -164,8 +172,8 @@
     }
 
     for(let idx = 0; idx < weeklyData['data'].length; idx ++){
-        //weeklyData['data'][idx] = weeklyData['data'][idx].slice(1,11) + ' al ' +  weeklyData['data'][idx].slice(-10);
-        weeklyData['data'][idx] = 'Week ' + (idx+1);
+        weeklyData['data'][idx] = weeklyData['data'][idx].slice(1,6) + ' al ' +  weeklyData['data'][idx].slice(-4);
+        
     }
 
 

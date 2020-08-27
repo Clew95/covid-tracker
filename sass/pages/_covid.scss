@@ -13,6 +13,8 @@
 		margin-left: 0;
 	}
 
+	overflow: hidden;
+	overflow-y: hidden;
 	&--full {
 		margin-left: 0;
 	}
@@ -45,9 +47,8 @@
 .charts {
 	background: linear-gradient(to right bottom, rgba($color-basic, .85), rgba($color-basic, .85)),
 		url('../images/covid_overview-bg.jpg');
-	background-size: 35%;
-	background-repeat: repeat;
-	background-attachment: fixed;
+	background-size: cover;
+	background-position: top right;
 
 	color: white;
 

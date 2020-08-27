@@ -1,12 +1,12 @@
 let totaleCasi = document.getElementById('totaleCasi').getContext('2d'),
+	totalePositivi = document.getElementById('totalePositivi').getContext('2d'),
 	nuoviPositivi = document.getElementById('nuoviPositivi').getContext('2d'),
-	nuoviPositiviSettimanale = document.getElementById('nuoviPositivi--settimanale').getContext('2d'),
-	totalePositivi = document.getElementById('totalePositivi').getContext('2d');
+	tamponi = document.getElementById('chartTamponi').getContext('2d'),
+	nuoviPositiviSettimanale = document.getElementById('nuoviPositivi--settimanale').getContext('2d');
 
 Chart.defaults.scale.gridLines.drawOnChartArea = false;
 Chart.defaults.animation = true;
 Chart.defaults.global.animation.duration = 5000;
-
 Chart.defaults.global.legend.display = false;
 
 const CHART_NORESP = {
@@ -72,6 +72,22 @@ let chartNuoviPositivi = new Chart(nuoviPositivi, {
 					let value = context.dataset.data[index];
 					return value < 500 ? '#07c180aa' : value < 1500 ? '#ff9931aa' : '#e65651aa';
 				}
+			}
+		]
+	},
+	options : CHART_NORESP
+});
+
+let chartTamponi = new Chart(tamponi, {
+	type    : 'bar',
+	data    : {
+		labels   : covidData['tamponi'],
+		datasets : [
+			{
+				label           : 'Tamponi',
+				data            : covidData['tamponi'],
+				backgroundColor : '#888',
+				borderColor     : '#777'
 			}
 		]
 	},

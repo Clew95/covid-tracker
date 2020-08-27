@@ -553,6 +553,7 @@ body {
       flex: 100%; } }
 
 canvas {
+  margin: 0 auto;
   min-height: 75vh; }
   @media only screen and (max-width: 56.25em) {
     canvas {
@@ -677,7 +678,9 @@ canvas {
 .main {
   width: 100%;
   margin-left: 30rem;
-  transition: all .5s ease-in-out; }
+  transition: all .5s ease-in-out;
+  overflow: hidden;
+  overflow-y: hidden; }
   @media only screen and (max-width: 56.25em) {
     .main {
       margin-left: 0; } }
@@ -702,9 +705,8 @@ canvas {
 
 .charts {
   background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.85), rgba(174, 198, 214, 0.85)), url("../images/covid_overview-bg.jpg");
-  background-size: 35%;
-  background-repeat: repeat;
-  background-attachment: fixed;
+  background-size: cover;
+  background-position: top right;
   color: white;
   padding-bottom: 5rem; }
   .charts__container {
