@@ -100,7 +100,7 @@ let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
 		labels   : weeklyData['data'],
 		datasets : [
 			{
-				label           : 'Nuovi Positivi - Settimanale',
+				label           : 'Nuovi Positivi',
 				data            : weeklyData['nuovi_positivi'],
 				backgroundColor : function(context) {
 					let index = context.dataIndex;
