@@ -4,6 +4,15 @@ let totaleCasi = document.getElementById('totaleCasi').getContext('2d'),
 	totalePositivi = document.getElementById('totalePositivi').getContext('2d');
 
 Chart.defaults.scale.gridLines.drawOnChartArea = false;
+Chart.defaults.animation = true;
+Chart.defaults.global.animation.duration = 5000;
+
+Chart.defaults.global.legend.display = false;
+
+const CHART_NORESP = {
+	responsive          : true,
+	maintainAspectRatio : false
+};
 
 let chartTotaleCasi = new Chart(totaleCasi, {
 	type    : 'line',
@@ -18,9 +27,7 @@ let chartTotaleCasi = new Chart(totaleCasi, {
 			}
 		]
 	},
-	options : {
-		maintainAspectRatio : false
-	}
+	options : CHART_NORESP
 });
 
 let chartTotalePositivi = new Chart(totalePositivi, {
@@ -44,9 +51,7 @@ let chartTotalePositivi = new Chart(totalePositivi, {
 			}
 		]
 	},
-	options : {
-		maintainAspectRatio : false
-	}
+	options : CHART_NORESP
 });
 
 let chartNuoviPositivi = new Chart(nuoviPositivi, {
@@ -70,9 +75,7 @@ let chartNuoviPositivi = new Chart(nuoviPositivi, {
 			}
 		]
 	},
-	options : {
-		maintainAspectRatio : false
-	}
+	options : CHART_NORESP
 });
 
 let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
@@ -96,7 +99,5 @@ let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
 			}
 		]
 	},
-	options : {
-		maintainAspectRatio : false
-	}
+	options : CHART_NORESP
 });

@@ -4,6 +4,8 @@ const main = document.querySelector('.main');
 const sidebar = document.querySelector('.sidebar');
 const hamburgerInput = document.querySelector('.hamburger__input');
 
+const chartsSection = document.querySelector('.charts');
+
 hamburgerInput.addEventListener('click', sidebarToggler);
 
 // ************************************************************* //

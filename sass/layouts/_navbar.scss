@@ -1,5 +1,6 @@
 .navbar {
 	@include fullwidth;
+	position: fixed;
 	height: 55px;
 
 	color: $color-grey-dark-3;

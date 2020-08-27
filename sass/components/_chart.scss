@@ -1,0 +1,6 @@
+canvas {
+	min-height: 75vh;
+	@include respond(tab-port) {
+		min-height: 25vh;
+	}
+}

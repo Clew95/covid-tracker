@@ -69,9 +69,25 @@ body {
 	}
 }
 
+.heading-secondary {
+	color: $color-grey-dark-3;
+	font-size: 4.5rem;
+
+	text-transform: uppercase;
+
+	font-weight: 400;
+
+	backface-visibility: hidden;
+	margin-bottom: 2.5rem;
+
+	text-align: center;
+
+	line-height: 1.2;
+}
+
 .heading-tertiary {
 	color: $color-grey-dark-3;
-	font-size: 3.5rem;
+	font-size: 3rem;
 
 	font-weight: 400;
 

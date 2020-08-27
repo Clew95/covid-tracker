@@ -5,8 +5,8 @@
     <%- include("partials/sidebar") %>
     <main class="main main--full">
         <%- include("partials/navbar") %>
-        <section class="stats">
-            <h3 class="heading-tertiary u-padding-left-m u-padding-top-l u-padding-top-l">Panoramica Generale</h3>
+        <section class="stats u-padding-bottom-m">
+            <h3 class="heading-tertiary u-padding-left-m u-padding-top-l u-padding-top-xl">Panoramica Generale</h3>
             <div class="stats__container">
                 <div class="stats__box">
                     <div class="card card--flexfull">
@@ -87,32 +87,34 @@
             </span>
         </section> 
 
-        <div class="divider u-margin-top-m u-margin-bottom-l"></div>
-
         <section class="charts">
 
-            <h3 class="heading-tertiary u-padding-left-m u-padding-top-l u-padding-top-l">Grafici</h3>
+            <h2 class="heading-secondary u-padding-left-m u-padding-top-xs">Grafici</h3>
             <div class="charts__container">
+                <h3 class="heading-tertiary">Casi Totali</h3>
                 <div class="chart__box">
-                    <canvas class="u-canvas-h-400" id="totaleCasi"></canvas>
-                </div>
-            </div>
-
-            <div class="charts__container">
-                <div class="chart__box">
-                    <canvas class="u-canvas-h-400 " id="totalePositivi"></canvas>
+                    <canvas id="totaleCasi"></canvas>
                 </div>
             </div>
             
             <div class="charts__container">
+                <h3 class="heading-tertiary">Casi Attivi</h3>
                 <div class="chart__box">
-                    <canvas class="u-canvas-h-400" id="nuoviPositivi"></canvas>
+                    <canvas id="totalePositivi"></canvas>
                 </div>
             </div>
-
+            
             <div class="charts__container">
+                <h3 class="heading-tertiary">Nuovi Positivi</h3>
                 <div class="chart__box">
-                    <canvas class="u-canvas-h-400" id="nuoviPositivi--settimanale"></canvas>
+                    <canvas id="nuoviPositivi"></canvas>
+                </div>
+            </div>
+            
+            <div class="charts__container">
+                <h3 class="heading-tertiary">Nuovi Positivi - Settimanale</h3>
+                <div class="chart__box">
+                    <canvas id="nuoviPositivi--settimanale"></canvas>
                 </div>
             </div>
 

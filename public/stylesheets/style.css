@@ -157,9 +157,19 @@ body {
     .heading-primary--img > img {
       max-width: 100%; }
 
+.heading-secondary {
+  color: #333;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  backface-visibility: hidden;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  line-height: 1.2; }
+
 .heading-tertiary {
   color: #333;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 400;
   backface-visibility: hidden;
   margin-bottom: 2rem;
@@ -542,10 +552,17 @@ body {
     .card {
       flex: 100%; } }
 
+canvas {
+  min-height: 75vh; }
+  @media only screen and (max-width: 56.25em) {
+    canvas {
+      min-height: 25vh; } }
+
 .navbar {
   position: relative;
   width: 100%;
   height: auto;
+  position: fixed;
   height: 55px;
   color: #333;
   background: #f9fcf8;
@@ -683,5 +700,19 @@ body {
     flex-wrap: wrap;
     margin: 1rem; }
 
-.charts__container {
-  padding: 1rem 3rem; }
+.charts {
+  background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.85), rgba(174, 198, 214, 0.85)), url("../images/covid_overview-bg.jpg");
+  background-size: 35%;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: white;
+  padding-bottom: 5rem; }
+  .charts__container {
+    padding: 1rem 3rem;
+    margin: 5rem 2.5rem;
+    color: #111;
+    background: rgba(254, 254, 254, 0.9); }
+  @media only screen and (max-width: 56.25em) {
+    .charts__container {
+      padding: 1rem;
+      margin: 5rem .5rem; } }
