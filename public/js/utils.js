@@ -20,3 +20,23 @@ dataManager.dateConverter = function(date) {
 
 	return day + ' ' + monthName[month - 1];
 };
+
+dataManager.generateDailyBuffer = function(buffers) {
+	let dailyBuffers = [];
+	let tmp_value = 0;
+	buffers.forEach((el) => {
+		dailyBuffers.push(el - tmp_value);
+		tmp_value = el; //tmp_value = 4324
+	});
+
+	return dailyBuffers;
+};
+
+dataManager.percBuffersPositives = function(buffers, positive) {
+	let percArray = [];
+
+	for (let idx = 0; idx < buffers.length; idx++) {
+		percArray.push(parseFloat((positive[idx] * 100 / buffers[idx]).toFixed(3)));
+	}
+	return percArray;
+};

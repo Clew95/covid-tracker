@@ -17,5 +17,56 @@
 
     <script type="text/javascript" src="/js/utils.js"></script>
 
+    <script>
+        function initObj(obj){
+            let tmpObj  = {}
+            if(typeof obj === 'object'){
+                for(let key in obj) {
+                    tmpObj[key] = [];
+                } 
+            }
+            return tmpObj;
+        }   
     
+        const reqData = <%- JSON.stringify(data) %>;
+        const covidData = initObj(reqData[reqData.length-1]);
+    
+        reqData.forEach(objData => {
+            for(let key in objData) {
+                if(key === 'data'){
+                    objData['data'] = dataManager.dateConverter(objData['data'])
+                }
+                covidData[key].push(objData[key])
+            }    
+        });
+    
+        
+        covidData.tamponi_nuovi = dataManager.generateDailyBuffer(covidData['tamponi'])
+        covidData.tamponi_perc_positivi = dataManager.percBuffersPositives(covidData['tamponi_nuovi'], covidData['nuovi_positivi'])
+
+        const weeklyData = initObj(covidData);
+
+        
+        for(let key in covidData) {
+            let count = 0;
+            let accumulatore = 0;
+    
+            covidData[key].forEach(element => {
+                if (count < 7 && element) {
+                    count++;
+                    accumulatore += element;
+                }
+                else {
+                    count = 0;
+                    weeklyData[key].push(accumulatore);
+                    accumulatore = 0;
+                }            
+            });
+        }
+        for(let idx = 0; idx < weeklyData['data'].length; idx ++){
+            weeklyData['data'][idx] = 'Settimana ' + (idx+1);
+        }
+    
+    
+    </script>
 </head>

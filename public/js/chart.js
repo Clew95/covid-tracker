@@ -1,8 +1,10 @@
 let totaleCasi = document.getElementById('totaleCasi').getContext('2d'),
 	totalePositivi = document.getElementById('totalePositivi').getContext('2d'),
+	percTamponiPositivi = document.getElementById('percTamponiPositivi').getContext('2d'),
 	nuoviPositivi = document.getElementById('nuoviPositivi').getContext('2d'),
 	tamponi = document.getElementById('chartTamponi').getContext('2d'),
-	nuoviPositiviSettimanale = document.getElementById('nuoviPositivi--settimanale').getContext('2d');
+	nuoviPositiviSettimanale = document.getElementById('nuoviPositivi--settimanale').getContext('2d'),
+	tamponiSettimanale = document.getElementById('chartTamponi--settimanale').getContext('2d');
 
 Chart.defaults.animation = true;
 Chart.defaults.global.animation.duration = 5000;
@@ -13,7 +15,7 @@ const CHART_OPTIONS = {
 	maintainAspectRatio : false,
 	elements            : {
 		line : {
-			tension : 0
+			tension : 0.75
 		}
 	},
 
@@ -102,6 +104,30 @@ let chartNuoviPositivi = new Chart(nuoviPositivi, {
 	options : CHART_OPTIONS
 });
 
+let chartPercTamponiPositivi = new Chart(percTamponiPositivi, {
+	type    : 'bar',
+	data    : {
+		labels   : covidData['data'],
+		datasets : [
+			{
+				label           : 'Percentuale Tamponi/Positivi',
+				data            : covidData['tamponi_perc_positivi'],
+				backgroundColor : function(context) {
+					let index = context.dataIndex;
+					let value = context.dataset.data[index];
+					return value < 2.5 ? '#07c180aa' : value < 10 ? '#ff9931aa' : '#e65651aa';
+				},
+				borderColor     : function(context) {
+					let index = context.dataIndex;
+					let value = context.dataset.data[index];
+					return value < 2.5 ? '#07c180aa' : value < 10 ? '#ff9931aa' : '#e65651aa';
+				}
+			}
+		]
+	},
+	options : CHART_OPTIONS
+});
+
 let chartTamponi = new Chart(tamponi, {
 	type    : 'line',
 	data    : {
@@ -109,7 +135,7 @@ let chartTamponi = new Chart(tamponi, {
 		datasets : [
 			{
 				label           : 'Tamponi',
-				data            : covidData['tamponi'],
+				data            : covidData['tamponi_nuovi'],
 				backgroundColor : '#1d355799',
 				borderColor     : '#eaeaea'
 			}
@@ -136,6 +162,22 @@ let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
 					let value = context.dataset.data[index];
 					return value < 5000 ? '#07c180aa' : value < 15000 ? '#ff9931aa' : '#e65651aa';
 				}
+			}
+		]
+	},
+	options : CHART_OPTIONS
+});
+
+let chartTamponiSettimanale = new Chart(tamponiSettimanale, {
+	type    : 'bar',
+	data    : {
+		labels   : weeklyData['data'],
+		datasets : [
+			{
+				label           : 'Tamponi',
+				data            : weeklyData['tamponi_nuovi'],
+				backgroundColor : '#1d355799',
+				borderColor     : '#eaeaea'
 			}
 		]
 	},
