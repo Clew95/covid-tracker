@@ -4,14 +4,38 @@ let totaleCasi = document.getElementById('totaleCasi').getContext('2d'),
 	tamponi = document.getElementById('chartTamponi').getContext('2d'),
 	nuoviPositiviSettimanale = document.getElementById('nuoviPositivi--settimanale').getContext('2d');
 
-Chart.defaults.scale.gridLines.drawOnChartArea = false;
 Chart.defaults.animation = true;
 Chart.defaults.global.animation.duration = 5000;
 Chart.defaults.global.legend.display = false;
 
-const CHART_NORESP = {
+const CHART_OPTIONS = {
 	responsive          : true,
-	maintainAspectRatio : false
+	maintainAspectRatio : false,
+	elements            : {
+		line : {
+			tension : 0
+		}
+	},
+
+	scales              : {
+		xAxes : [
+			{
+				gridLines : {
+					display    : false,
+					drawBorder : false
+				}
+			}
+		],
+		yAxes : [
+			{
+				ticks : {
+					callback : function(value) {
+						return numeral(value).format('0,0');
+					}
+				}
+			}
+		]
+	}
 };
 
 let chartTotaleCasi = new Chart(totaleCasi, {
@@ -27,7 +51,7 @@ let chartTotaleCasi = new Chart(totaleCasi, {
 			}
 		]
 	},
-	options : CHART_NORESP
+	options : CHART_OPTIONS
 });
 
 let chartTotalePositivi = new Chart(totalePositivi, {
@@ -51,7 +75,7 @@ let chartTotalePositivi = new Chart(totalePositivi, {
 			}
 		]
 	},
-	options : CHART_NORESP
+	options : CHART_OPTIONS
 });
 
 let chartNuoviPositivi = new Chart(nuoviPositivi, {
@@ -75,23 +99,23 @@ let chartNuoviPositivi = new Chart(nuoviPositivi, {
 			}
 		]
 	},
-	options : CHART_NORESP
+	options : CHART_OPTIONS
 });
 
 let chartTamponi = new Chart(tamponi, {
-	type    : 'bar',
+	type    : 'line',
 	data    : {
-		labels   : covidData['tamponi'],
+		labels   : covidData['data'],
 		datasets : [
 			{
 				label           : 'Tamponi',
 				data            : covidData['tamponi'],
-				backgroundColor : '#888',
-				borderColor     : '#777'
+				backgroundColor : '#1d355799',
+				borderColor     : '#eaeaea'
 			}
 		]
 	},
-	options : CHART_NORESP
+	options : CHART_OPTIONS
 });
 
 let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
@@ -115,5 +139,5 @@ let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
 			}
 		]
 	},
-	options : CHART_NORESP
+	options : CHART_OPTIONS
 });

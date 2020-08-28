@@ -118,9 +118,9 @@
                 </div>
             </div>
 
-            <h2 class="heading-secondary u-padding-left-m u-padding-top-xs">Andamenti Settimanali</h3>
+            <h2 class="heading-secondary u-padding-left-m u-padding-top-xs">Andamento Settimanale</h3>
             <div class="charts__container">
-                <h3 class="heading-tertiary">Nuovi Positivi - Settimanale</h3>
+                <h3 class="heading-tertiary">Nuovi Positivi</h3>
                 <div class="chart__box">
                     <canvas id="nuoviPositivi--settimanale"></canvas>
                 </div>
@@ -148,7 +148,7 @@
     reqData.forEach(objData => {
         for(let key in objData) {
             if(key === 'data'){
-                objData['data'] = objData['data'].slice(5, objData['data'].lastIndexOf('T'));
+                objData['data'] = dataManager.dateConverter(objData['data'])
             }
             covidData[key].push(objData[key])
         }    
@@ -172,8 +172,7 @@
     }
 
     for(let idx = 0; idx < weeklyData['data'].length; idx ++){
-        weeklyData['data'][idx] = weeklyData['data'][idx].slice(1,6) + ' al ' +  weeklyData['data'][idx].slice(-4);
-        
+        weeklyData['data'][idx] = 'Settimana ' + (idx+1);
     }
 
 

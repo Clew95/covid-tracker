@@ -2,8 +2,6 @@ const express = require('express'),
 	axios = require('axios').default,
 	router = express.Router();
 
-const dataManager = require('../middleware/dataManager');
-
 router.get('/', (req, res) => {
 	axios
 		.get(
