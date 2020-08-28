@@ -10,20 +10,7 @@ dataManager.isANumber = function(value) {
 };
 
 dataManager.dateConverter = function(date) {
-	const monthName = [
-		'Gennaio',
-		'Febbraio',
-		'Marzo',
-		'Aprile',
-		'Maggio',
-		'Giugno',
-		'Luglio',
-		'Agosto',
-		'Settembre',
-		'Ottobre',
-		'Novembre',
-		'Dicembre'
-	];
+	const monthName = [ 'Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic' ];
 
 	const dateSplitted = date.split('-');
 	year = parseInt(dateSplitted[0]);
@@ -31,5 +18,5 @@ dataManager.dateConverter = function(date) {
 	day = parseInt(dateSplitted[2].slice(0, 2));
 	hr = dateSplitted[2].slice(-8);
 
-	return day + ' ' + monthName[month - 1] + ' ' + year;
+	return day + ' ' + monthName[month - 1];
 };

@@ -557,7 +557,7 @@ canvas {
   min-height: 75vh; }
   @media only screen and (max-width: 56.25em) {
     canvas {
-      min-height: 32.5vh; } }
+      min-height: 37.5vh; } }
 
 .navbar {
   position: relative;
