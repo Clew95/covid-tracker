@@ -40,3 +40,19 @@ dataManager.percBuffersPositives = function(buffers, positive) {
 	}
 	return percArray;
 };
+
+dataManager.createDataElem = function(DOMelement, dataArray, dates) {
+	for (let idx = 0; idx < dates.length; idx++) {
+		let tmp_string = `${dates[idx]}: ${dataArray[idx]}`;
+		let tmp_span = document.createElement('span');
+		tmp_span.className = `charts__item`;
+
+		tmp_span.innerHTML = `${tmp_string}</>`;
+
+		DOMelement.appendChild(tmp_span);
+	}
+};
+
+dataManager.numberWithCommas = function(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};

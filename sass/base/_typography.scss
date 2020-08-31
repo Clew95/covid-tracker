@@ -147,4 +147,40 @@ body {
 			color: inherit;
 		}
 	}
+
+	&--positive {
+		background: rgba($color-success, .75);
+		color: $color-white;
+		padding: .25rem .75rem;
+		font-size: 1.3rem;
+		font-weight: 500;
+
+		margin-left: .5rem;
+
+		border-radius: 5px;
+	}
+
+	&--negative {
+		background: rgba($color-error, .8);
+		color: $color-white;
+		padding: .25rem .75rem;
+		font-size: 1.3rem;
+		font-weight: 500;
+
+		margin-left: .5rem;
+
+		border-radius: 3.5px;
+	}
+
+	&--neutral {
+		background: rgba($color-basic, .75);
+		color: $color-white;
+		padding: .25rem .75rem;
+		font-size: 1.3rem;
+		font-weight: 500;
+
+		margin-left: .5rem;
+
+		border-radius: 3.5px;
+	}
 }

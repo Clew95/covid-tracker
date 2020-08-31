@@ -207,6 +207,33 @@ body {
     font-weight: 500;
     color: inherit; }
 
+.span--positive {
+  background: rgba(7, 193, 128, 0.75);
+  color: #fefefe;
+  padding: .25rem .75rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-left: .5rem;
+  border-radius: 5px; }
+
+.span--negative {
+  background: rgba(230, 86, 81, 0.8);
+  color: #fefefe;
+  padding: .25rem .75rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-left: .5rem;
+  border-radius: 3.5px; }
+
+.span--neutral {
+  background: rgba(174, 198, 214, 0.75);
+  color: #fefefe;
+  padding: .25rem .75rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-left: .5rem;
+  border-radius: 3.5px; }
+
 .u-letterspacing {
   letter-spacing: normal !important; }
   .u-letterspacing--xs {
