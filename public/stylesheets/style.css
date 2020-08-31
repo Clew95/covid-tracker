@@ -566,7 +566,7 @@ body {
   background: #fefefe; }
   .card__title {
     color: #aeafd6;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
     text-transform: uppercase; }
   .card__data {
@@ -575,7 +575,7 @@ body {
     margin-bottom: 1.5rem; }
   .card--flexfull {
     flex: 1; }
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 56.25em) {
     .card {
       flex: 100%; } }
 

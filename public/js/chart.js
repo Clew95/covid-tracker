@@ -129,7 +129,7 @@ let chartPercTamponiPositivi = new Chart(percTamponiPositivi, {
 });
 
 let chartTamponi = new Chart(tamponi, {
-	type    : 'line',
+	type    : 'bar',
 	data    : {
 		labels   : covidData['data'],
 		datasets : [
