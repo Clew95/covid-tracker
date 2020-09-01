@@ -604,7 +604,8 @@ canvas {
   color: #333;
   background: #f9fcf8;
   font-size: 2rem;
-  box-shadow: 0 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.2);
+  z-index: 9998; }
   @media only screen and (max-width: 56.25em) {
     .navbar {
       position: fixed;
@@ -750,7 +751,34 @@ canvas {
     margin: 5rem 2.5rem;
     color: #111;
     background: rgba(254, 254, 254, 0.9); }
+  .charts__inline {
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    right: 50%;
+    transform: translateX(50%); }
+    .charts__inline__container {
+      padding: 1rem 3rem;
+      color: #111;
+      background: rgba(254, 254, 254, 0.9);
+      margin: 0 auto; }
+      .charts__inline__container--1-of-2 {
+        width: 47%; }
+      .charts__inline__container--1-of-3 {
+        width: 31.3333333%; }
   @media only screen and (max-width: 56.25em) {
     .charts__container {
       padding: 1rem;
-      margin: 5rem .5rem; } }
+      margin: 5rem .5rem; }
+    .charts__inline {
+      display: block;
+      right: 0;
+      transform: translate(0); }
+      .charts__inline__container {
+        padding: 1rem;
+        margin: 5rem .5rem; }
+        .charts__inline__container--1-of-2 {
+          width: 100%; }
+        .charts__inline__container--1-of-3 {
+          width: 100%; } }

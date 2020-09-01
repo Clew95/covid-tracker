@@ -10,6 +10,8 @@
 
 	box-shadow: 0 .1rem .2rem -.1rem rgba(0, 0, 0, .2);
 
+	z-index: 9998;
+
 	@include respond(tab-port) {
 		position: fixed;
 		z-index: 9999;

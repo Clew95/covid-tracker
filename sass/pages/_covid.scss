@@ -61,10 +61,52 @@
 		background: rgba($color-white, .9);
 	}
 
+	&__inline {
+		display: inline-flex;
+		position: relative;
+		width: 100%;
+		text-align: center;
+		right: 50%;
+		transform: translateX(50%);
+
+		&__container {
+			padding: 1rem 3rem;
+			color: $color-black;
+			background: rgba($color-white, .9);
+			margin: 0 auto;
+
+			&--1-of-2 {
+				width: 47%;
+			}
+			&--1-of-3 {
+				width: 31.3333333%;
+			}
+		}
+	}
+
 	@include respond(tab-port) {
 		&__container {
 			padding: 1rem;
 			margin: 5rem .5rem;
+		}
+
+		&__inline {
+			display: block;
+			right: 0;
+			transform: translate(0);
+
+			&__container {
+				padding: 1rem;
+				margin: 5rem .5rem;
+
+				&--1-of-2 {
+					width: 100%;
+				}
+
+				&--1-of-3 {
+					width: 100%;
+				}
+			}
 		}
 	}
 }

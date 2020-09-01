@@ -192,12 +192,6 @@
                     </div>
                 </div>
 
-                <div class="charts__container">
-                    <h3 class="heading-tertiary">Tamponi</h3>
-                    <div class="charts__box">
-                        <canvas id="chartTamponi"></canvas>
-                    </div>
-                </div>
 
                 <div class="charts__container">
                     <h3 class="heading-tertiary">Casi Testati</h3>
@@ -207,11 +201,36 @@
                 </div>
 
                 <div class="charts__container">
-                    <h3 class="heading-tertiary">Casi da Screening/Sospetto Diagnostico</h3>
+                    <h3 class="heading-tertiary">Tamponi</h3>
                     <div class="charts__box">
-                        <canvas id="chartPieScreeningDiagnostico"></canvas>
+                        <canvas id="chartTamponi"></canvas>
                     </div>
                 </div>
+
+                <div class="charts__container">
+                    <h3 class="heading-tertiary">Isoalmento - Ricoverati - Terapie Intensive</h3>
+                    <div class="charts__box">
+                        <canvas id="chartHealtStatus"></canvas>
+                    </div>
+                </div>
+
+                <div class="charts__inline">
+                    <div class="charts__inline__container charts__inline__container--1-of-2">
+                        <h3 class="heading-tertiary">Casi da Screening - Sospetto Diagnostico</h3>
+                        <div class="charts__box">
+                            <canvas id="chartPieScreeningDiagnostico"></canvas>
+                        </div>
+                    </div>
+                    <div class="charts__inline__container charts__inline__container--1-of-2">
+                        <h3 class="heading-tertiary">Isolamento - Ricoveri - Terapie Intensive</h3>
+                        <div class="charts__box">
+                            <canvas id="chartPieHealtStatus"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
                 <h2 class="heading-secondary u-padding-left-m u-padding-top-xs">Andamento Settimanale</h3>
                     <div class="charts__container">
