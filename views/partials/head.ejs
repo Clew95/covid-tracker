@@ -18,57 +18,67 @@
     <script type="text/javascript" src="/js/utils.js"></script>
 
     <% if(baseUrl === '/covid'){ %>
-        <script>
-            function initObj(obj){
-                let tmpObj  = {}
-                if(typeof obj === 'object'){
-                    for(let key in obj) {
-                        tmpObj[key] = [];
-                    } 
+    <script>
+        function initObj(obj) {
+            let tmpObj = {}
+            if (typeof obj === 'object') {
+                for (let key in obj) {
+                    tmpObj[key] = [];
                 }
-                return tmpObj;
-            }   
-        
-            const reqData = <%- JSON.stringify(data) %>;
-            const covidData = initObj(reqData[reqData.length-1]);
-        
-            reqData.forEach(objData => {
-                for(let key in objData) {
-                    if(key === 'data'){
-                        objData['data'] = dataManager.dateConverter(objData['data'])
-                    }
-                    covidData[key].push(objData[key])
-                }    
+            }
+            return tmpObj;
+        }
+
+        const reqData = <%- JSON.stringify(data) %>;
+        const covidData = initObj(reqData[reqData.length - 1]);
+
+        reqData.forEach(objData => {
+            for (let key in objData) {
+                if (key === 'data') {
+                    objData['data'] = dataManager.dateConverter(objData['data'])
+                }
+                covidData[key].push(objData[key])
+            }
+        });
+
+
+        covidData.tamponi_giornalieri = dataManager.generateDailyValues(covidData['tamponi']);
+        covidData.casi_testati_giornalieri = dataManager.generateDailyValues(covidData['casi_testati']);
+        covidData.casi_da_screening_giornalieri = dataManager.generateDailyValues(covidData['casi_da_screening']);
+        covidData.casi_da_sospetto_diagnostico_giornalieri = dataManager.generateDailyValues(covidData['casi_da_sospetto_diagnostico']);
+        covidData.deceduti_giornalieri = dataManager.generateDailyValues(covidData['deceduti']);
+        covidData.dimessi_guariti_giornalieri = dataManager.generateDailyValues(covidData['dimessi_guariti']);
+        covidData.isolamento_domiciliare_giornalieri = dataManager.generateDailyValues(covidData['isolamento_domiciliare']);
+        covidData.ricoverati_con_sintomi_giornalieri = dataManager.generateDailyValues(covidData['ricoverati_con_sintomi']);
+        covidData.terapia_intensiva_giornalieri = dataManager.generateDailyValues(covidData['terapia_intensiva']);
+        covidData.totale_ospedalizzati_giornalieri = dataManager.generateDailyValues(covidData['totale_ospedalizzati']);
+
+        covidData.tamponi_perc_positivi = dataManager.percBuffersPositives(covidData['tamponi_giornalieri'], covidData['nuovi_positivi'])
+
+        const weeklyData = initObj(covidData);
+
+
+        for (let key in covidData) {
+            let count = 0;
+            let accumulatore = 0;
+
+            covidData[key].forEach(element => {
+                if (count < 7 && element) {
+                    count++;
+                    accumulatore += element;
+                }
+                else {
+                    count = 0;
+                    weeklyData[key].push(accumulatore);
+                    accumulatore = 0;
+                }
             });
-        
-            
-            covidData.tamponi_nuovi = dataManager.generateDailyBuffer(covidData['tamponi'])
-            covidData.tamponi_perc_positivi = dataManager.percBuffersPositives(covidData['tamponi_nuovi'], covidData['nuovi_positivi'])
+        }
+        for (let idx = 0; idx < weeklyData['data'].length; idx++) {
+            weeklyData['data'][idx] = 'Settimana ' + (idx + 1);
+        }
 
-            const weeklyData = initObj(covidData);
 
-            
-            for(let key in covidData) {
-                let count = 0;
-                let accumulatore = 0;
-        
-                covidData[key].forEach(element => {
-                    if (count < 7 && element) {
-                        count++;
-                        accumulatore += element;
-                    }
-                    else {
-                        count = 0;
-                        weeklyData[key].push(accumulatore);
-                        accumulatore = 0;
-                    }            
-                });
-            }
-            for(let idx = 0; idx < weeklyData['data'].length; idx ++){
-                weeklyData['data'][idx] = 'Settimana ' + (idx+1);
-            }
-        
-        
-        </script>
-    <% } %> 
+    </script>
+    <% } %>
 </head>

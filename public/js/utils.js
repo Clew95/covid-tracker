@@ -21,15 +21,19 @@ dataManager.dateConverter = function(date) {
 	return day + ' ' + monthName[month - 1];
 };
 
-dataManager.generateDailyBuffer = function(buffers) {
-	let dailyBuffers = [];
+dataManager.generateDailyValues = function(dataElement) {
+	let dailyElement = [];
 	let tmp_value = 0;
-	buffers.forEach((el) => {
-		dailyBuffers.push(el - tmp_value);
-		tmp_value = el; //tmp_value = 4324
+	dataElement.forEach((el) => {
+		if (el) {
+			dailyElement.push(el - tmp_value);
+			tmp_value = el; //tmp_value = 4324
+		} else {
+			dailyElement.push(0);
+		}
 	});
 
-	return dailyBuffers;
+	return dailyElement;
 };
 
 dataManager.percBuffersPositives = function(buffers, positive) {

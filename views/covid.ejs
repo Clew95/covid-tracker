@@ -10,41 +10,66 @@
                 <div class="stats__box">
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Totali <i class="fas fa-viruses"></i></h4>
-                        <p class="card__data" id="totale_casi"><%= lastUpdate.totale_casi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p>
-                        <span class="span--info"><i class="fas fa-info-circle"></i> I casi totali è il numero che indica quante persone sono state contagiate in Italia dall'inizio della pandemia sino ad oggi</span>
+                        <p class="card__data" id="totale_casi">
+                            <%= lastUpdate.totale_casi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p>
+                        <span class="span--info"><i class="fas fa-info-circle"></i> I casi totali è il numero che indica
+                            quante persone sono state contagiate in Italia dall'inizio della pandemia sino ad
+                            oggi</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Attivi <i class="fas fa-virus"></i></h4>
-                        <p class="card__data" id="totale_positivi"><%= lastUpdate.totale_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
+                        <p class="card__data" id="totale_positivi">
+                            <%= lastUpdate.totale_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
                             <% if(settings.incremento_attualmente_positivi)  { %>
-                                <span class="span--incremento"><span class="span--incremento__numero"> +<%= lastUpdate.variazione_totale_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span> <i class="fas fa-arrow-up  span--incremento__animated"></i></span>
+                            <span class="span--incremento"><span class="span--incremento__numero">
+                                    +<%= lastUpdate.variazione_totale_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span>
+                                <i class="fas fa-arrow-up  span--incremento__animated"></i></span>
                             <% } else { %>
-                                <span class="span--decremento"><span class="span--decremento__numero"> +<%= lastUpdate.variazione_totale_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span> <i class="fas fa-arrow-down  span--decremento__animated" ></i></span>
+                            <span class="span--decremento"><span class="span--decremento__numero">
+                                    +<%= lastUpdate.variazione_totale_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></span>
+                                <i class="fas fa-arrow-down  span--decremento__animated"></i></span>
                             <% } %>
                         </p>
-                        <span class="span--info"><i class="fas fa-info-circle"></i> Indica il numero degli attualmente positivi. Per calcolare gli attualmente positivi basta effettuare una semplice operazione: <br> CASI ATTIVI = CASI TOTALI - (GUARITI + MORTI)</span>
+                        <span class="span--info"><i class="fas fa-info-circle"></i> Indica il numero degli attualmente
+                            positivi. Per calcolare gli attualmente positivi basta effettuare una semplice operazione:
+                            <br> CASI ATTIVI = CASI TOTALI - (GUARITI + MORTI)</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Nuovi Positivi <i class="fas fa-user-plus"></i></h4>
-                        <p class="card__data" id="nuovi_positivi"><%= lastUpdate.nuovi_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> 
+                        <p class="card__data" id="nuovi_positivi">
+                            <%= lastUpdate.nuovi_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                             <% if(settings.incremento_nuovi_positivi)  { %>
-                                <span class="span--incremento"><i class="fas fa-arrow-up  span--incremento__animated"></i></span>
+                            <span class="span--incremento"><i
+                                    class="fas fa-arrow-up  span--incremento__animated"></i></span>
                             <% } else { %>
-                                <span class="span--decremento"><i class="fas fa-arrow-down  span--decremento__animated" ></i></span>
+                            <span class="span--decremento"><i
+                                    class="fas fa-arrow-down  span--decremento__animated"></i></span>
                             <% } %>
                         </p>
-                        <span class="span--info"><i class="fas fa-info-circle"></i> I nuovi positivi indicano il numero dei contaggi avvenuti nelle ulitme 24 ore.</span>
+                        <span class="span--info"><i class="fas fa-info-circle"></i> I nuovi positivi indicano il numero
+                            dei contaggi avvenuti nelle ulitme 24 ore.</span>
                     </div>
                 </div>
                 <div class="stats__box">
                     <div class="card card--flexfull">
                         <h4 class="card__title">Guariti <i class="fas fa-heartbeat"></i></h4>
-                        <p class="card__data" id="dimessi_guariti"><%= lastUpdate.dimessi_guariti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span class="span--positive"> +<%= (parseInt(lastUpdate.dimessi_guariti) - parseInt(secondLastUpdate.dimessi_guariti)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%></span></p>
-                        <span class="span--info"><i class="fas fa-info-circle"></i> «Il paziente guarito è colui che ha superato i sintomi da Covid-19 e che risulta negativo a due test consecutivi per la ricerca di Sars-CoV-2» Dunque, una paziente si definisce guarito completamente se risulta negativo a 2 tamponi consecutivamente e ripetuti a distanza di almeno 24 ore l'uno dall'altro</span>
+                        <p class="card__data" id="dimessi_guariti">
+                            <%= lastUpdate.dimessi_guariti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
+                                class="span--positive">
+                                +<%= (parseInt(lastUpdate.dimessi_guariti) - parseInt(secondLastUpdate.dimessi_guariti)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%></span>
+                        </p>
+                        <span class="span--info"><i class="fas fa-info-circle"></i> «Il paziente guarito è colui che ha
+                            superato i sintomi da Covid-19 e che risulta negativo a due test consecutivi per la ricerca
+                            di Sars-CoV-2» Dunque, una paziente si definisce guarito completamente se risulta negativo a
+                            2 tamponi consecutivamente e ripetuti a distanza di almeno 24 ore l'uno dall'altro</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Morti <i class="fas fa-cross"></i></h4>
-                        <p class="card__data" id="deceduti"><%= lastUpdate.deceduti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span class="span--negative"> +<%= (parseInt(lastUpdate.deceduti) - parseInt(secondLastUpdate.deceduti)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%> </span></p>
+                        <p class="card__data" id="deceduti">
+                            <%= lastUpdate.deceduti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
+                                class="span--negative">
+                                +<%= (parseInt(lastUpdate.deceduti) - parseInt(secondLastUpdate.deceduti)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
+                            </span></p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> Numero dei decessi per Covid e con
                             Covid. <br> <strong>CON Covid:</strong> Vuol dire che, in aggiunta ad altre patologie, il
                             Covid ha avuto un impatto decisivo nella morte di quella persona. <br> <strong>PER
@@ -52,28 +77,78 @@
                             da Covid </span>
                     </div>
                 </div>
+
+                <div class="stats__box">
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Isolamento Domiciliare <i class="fas fa-home"></i></h4>
+                        <p class="card__data" id="isolamentoDomiciliare">
+                            <%= lastUpdate.isolamento_domiciliare.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
+                                class="span--neutral">
+                                +<%= (parseInt(lastUpdate.isolamento_domiciliare) - parseInt(secondLastUpdate.isolamento_domiciliare)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%>
+                            </span></p>
+                        <span class="span--info"><i class="fas fa-info-circle"></i> É il numero delle persone che in questo momento sono sottoposte ad isolamento domiciliare, una volta che il tampone è risultato positivo. Questo vuol dire che in questo calcolo non vengono conteggiate le persone in isolamento fiduciario e che dunque non sono state ancora sottoposte a tampone</span>
+                    </div>
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Ricoverati <i class="fas fa-bed"></i></h4>
+                        <p class="card__data" id="ricoveratiConSintomi">
+                            <%= lastUpdate.ricoverati_con_sintomi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
+                                class="span--neutral">
+                                +<%= (parseInt(lastUpdate.ricoverati_con_sintomi) - parseInt(secondLastUpdate.ricoverati_con_sintomi)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%>
+                            </span></p>
+                        <span class="span--info"><i class="fas fa-info-circle"></i> É il numero delle persone positive al covid che vengono messe sotto osservazione a causa di sintomi che potrebbero diventare più seri con il passare delle ore e che necessitano, dunque, di una terapia ospedaliera specifica e di un continuo monitoraggio</span>
+                    </div>
+                    <div class="card card--flexfull">
+                        <h4 class="card__title">Terapia Intensiva <i class="fas fa-procedures"></i></h4>
+                        <p class="card__data" id="terapiaIntensiva">
+                            <%= lastUpdate.terapia_intensiva.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
+                                class="span--negative">
+                                +<%= (parseInt(lastUpdate.terapia_intensiva) - parseInt(secondLastUpdate.terapia_intensiva)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%>
+                                
+                            </span></p>
+                        <span class="span--info"><i class="fas fa-info-circle"></i> É il numero delle persone positive al covid che vengono messe sotto osservazione a causa di sintomi che potrebbero diventare più seri con il passare delle ore e che necessitano, dunque, di una terapia ospedaliera specifica e di un continuo monitoraggio</span>
+                    </div>
+                </div>
+
                 <div class="stats__box">
                     <div class="card card--flexfull">
                         <h4 class="card__title">Tamponi <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="tamponi"><%= lastUpdate.tamponi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span class="span--neutral"> +<%= (parseInt(lastUpdate.tamponi) - parseInt(secondLastUpdate.tamponi)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%> </span></p>
-                        <span class="span--info"><i class="fas fa-info-circle"></i> É il numero dei tamponi processati. Questo numero comprende anche i tamponi ripetuti su una persona per verificare se guarito completamente dal Covid</span>
+                        <p class="card__data" id="tamponi">
+                            <%= lastUpdate.tamponi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
+                                class="span--neutral">
+                                +<%= (parseInt(lastUpdate.tamponi) - parseInt(secondLastUpdate.tamponi)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%>
+                            </span></p>
+                        <span class="span--info"><i class="fas fa-info-circle"></i> É il numero dei tamponi processati.
+                            Questo numero comprende anche i tamponi ripetuti su una persona per verificare se guarito
+                            completamente dal Covid</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Testati <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="casi_testati"><%= lastUpdate.casi_testati.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span class="span--neutral"> +<%= (parseInt(lastUpdate.casi_testati) - parseInt(secondLastUpdate.casi_testati)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%></span></p>
+                        <p class="card__data" id="casi_testati">
+                            <%= lastUpdate.casi_testati.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
+                                class="span--neutral">
+                                +<%= (parseInt(lastUpdate.casi_testati) - parseInt(secondLastUpdate.casi_testati)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%></span>
+                        </p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> Il numero dei casi testati ci dice
                             quante persone sono state sottoposte ad almeno 1 tampone.</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title"> Sospetti Diagnostici <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="casi_da_sospetto_diagnostico"><%= lastUpdate.casi_da_sospetto_diagnostico.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%> <span class="span--neutral"> +<%= (parseInt(lastUpdate.casi_da_sospetto_diagnostico) - parseInt(secondLastUpdate.casi_da_sospetto_diagnostico)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%> </span> 
+                        <p class="card__data" id="casi_da_sospetto_diagnostico">
+                            <%= lastUpdate.casi_da_sospetto_diagnostico.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
+                            <span class="span--neutral">
+                                +<%= (parseInt(lastUpdate.casi_da_sospetto_diagnostico) - parseInt(secondLastUpdate.casi_da_sospetto_diagnostico)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
+                            </span>
                         </p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> I sospetti diagnostici sono quei
                             positivi che hanno effettuato un tampone solo dopo aver avuto sintomatologie da Covid</span>
                     </div>
                     <div class="card card--flexfull">
                         <h4 class="card__title">Casi Da Screening <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="casi_da_screening"><%= lastUpdate.casi_da_screening.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span class="span--neutral"> +<%= (parseInt(lastUpdate.casi_da_screening) - parseInt(secondLastUpdate.casi_da_screening)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%> </span> </p>
+                        <p class="card__data" id="casi_da_screening">
+                            <%= lastUpdate.casi_da_screening.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
+                                class="span--neutral">
+                                +<%= (parseInt(lastUpdate.casi_da_screening) - parseInt(secondLastUpdate.casi_da_screening)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
+                            </span> </p>
                         <span class="span--info"><i class="fas fa-info-circle"></i> I casi da screening sono quei
                             positivi che hanno effettuato test sierologici e tamponi in semplici screening di controllo.
                             La maggiorparte asintomatici</span>
@@ -84,60 +159,74 @@
             <span class="span--last_update u-margin-left-m">Ultimo aggiornamento
                 <%= lastUpdate.data.slice(0, lastUpdate.data.lastIndexOf('T')) + ' alle ore: ' + lastUpdate.data.slice(lastUpdate.data.lastIndexOf('T') + 1, lastUpdate.data.length -3 ) %>
             </span>
-        </section> 
+        </section>
 
         <section class="charts">
 
             <h2 class="heading-secondary u-padding-left-m u-padding-top-xs">Grafici</h3>
-            <div class="charts__container">
-                <h3 class="heading-tertiary">Casi Totali</h3>
-                <div class="charts__box">
-                    <canvas id="totaleCasi"></canvas>
+                <div class="charts__container">
+                    <h3 class="heading-tertiary">Casi Totali</h3>
+                    <div class="charts__box">
+                        <canvas id="totaleCasi"></canvas>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="charts__container">
-                <h3 class="heading-tertiary">Casi Attivi</h3>
-                <div class="charts__box">
-                    <canvas id="totalePositivi"></canvas>
-                </div>
-            </div>
-            
-            <div class="charts__container">
-                <h3 class="heading-tertiary">Nuovi Positivi</h3>
-                <div class="charts__box">
-                    <canvas id="nuoviPositivi"></canvas>
-                </div>
-            </div>
 
-            <div class="charts__container">
-                <h3 class="heading-tertiary">Percentuale Tamponi-Positivi</h3>
-                <div class="charts__box">
-                    <canvas id="percTamponiPositivi"></canvas>
+                <div class="charts__container">
+                    <h3 class="heading-tertiary">Casi Attivi</h3>
+                    <div class="charts__box">
+                        <canvas id="totalePositivi"></canvas>
+                    </div>
                 </div>
-            </div>
 
-            <div class="charts__container">
-                <h3 class="heading-tertiary">Tamponi</h3>
-                <div class="charts__box">
-                    <canvas id="chartTamponi"></canvas>
+                <div class="charts__container">
+                    <h3 class="heading-tertiary">Nuovi Positivi</h3>
+                    <div class="charts__box">
+                        <canvas id="nuoviPositivi"></canvas>
+                    </div>
                 </div>
-            </div>
 
-            <h2 class="heading-secondary u-padding-left-m u-padding-top-xs">Andamento Settimanale</h3>
-            <div class="charts__container">
-                <h3 class="heading-tertiary">Nuovi Positivi</h3>
-                <div class="charts__box">
-                    <canvas id="nuoviPositivi--settimanale"></canvas>
+                <div class="charts__container">
+                    <h3 class="heading-tertiary">Percentuale Tamponi-Positivi</h3>
+                    <div class="charts__box">
+                        <canvas id="percTamponiPositivi"></canvas>
+                    </div>
                 </div>
-            </div>
 
-            <div class="charts__container">
-                <h3 class="heading-tertiary">Tamponi</h3>
-                <div class="charts__box">
-                    <canvas id="chartTamponi--settimanale"></canvas>
+                <div class="charts__container">
+                    <h3 class="heading-tertiary">Tamponi</h3>
+                    <div class="charts__box">
+                        <canvas id="chartTamponi"></canvas>
+                    </div>
                 </div>
-            </div>
+
+                <div class="charts__container">
+                    <h3 class="heading-tertiary">Casi Testati</h3>
+                    <div class="charts__box">
+                        <canvas id="chartCasiTestati"></canvas>
+                    </div>
+                </div>
+
+                <div class="charts__container">
+                    <h3 class="heading-tertiary">Casi da Screening/Sospetto Diagnostico</h3>
+                    <div class="charts__box">
+                        <canvas id="chartPieScreeningDiagnostico"></canvas>
+                    </div>
+                </div>
+
+                <h2 class="heading-secondary u-padding-left-m u-padding-top-xs">Andamento Settimanale</h3>
+                    <div class="charts__container">
+                        <h3 class="heading-tertiary">Nuovi Positivi</h3>
+                        <div class="charts__box">
+                            <canvas id="nuoviPositivi--settimanale"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="charts__container">
+                        <h3 class="heading-tertiary">Tamponi</h3>
+                        <div class="charts__box">
+                            <canvas id="chartTamponi--settimanale"></canvas>
+                        </div>
+                    </div>
 
         </section>
     </main>

@@ -196,7 +196,7 @@ body {
     color: inherit; }
 
 .span--decremento {
-  color: #9ad8fe;
+  color: rgba(174, 198, 214, 0.75);
   font-size: 2.5rem;
   margin-left: .75rem;
   transform: translateY(-10px); }
@@ -218,6 +218,15 @@ body {
 
 .span--negative {
   background: rgba(230, 86, 81, 0.8);
+  color: #fefefe;
+  padding: .25rem .75rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-left: .5rem;
+  border-radius: 3.5px; }
+
+.span--warning {
+  background: rgba(255, 139, 49, 0.8);
   color: #fefefe;
   padding: .25rem .75rem;
   font-size: 1.3rem;
