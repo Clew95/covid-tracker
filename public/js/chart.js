@@ -327,20 +327,20 @@ let chartHealtStatus = new Chart(healtStatus, {
 		datasets : [
 			{
 				label           : 'In Terapia Intensiva',
-				data            : covidData['terapia_intensiva_giornalieri'],
+				data            : covidData['terapia_intensiva'],
 				backgroundColor : '#fda2aabb',
 				borderColor     : '#fc747f'
 			},
 			{
 				label           : 'Ricoverati',
-				data            : covidData['ricoverati_con_sintomi_giornalieri'],
+				data            : covidData['ricoverati_con_sintomi'],
 				backgroundColor : '#ebab51dd',
 				borderColor     : '#efefef'
 			},
 
 			{
 				label           : 'Isolamento Domiciliare',
-				data            : covidData['isolamento_domiciliare_giornalieri'],
+				data            : covidData['isolamento_domiciliare'],
 				backgroundColor : '#07c180aa',
 				borderColor     : '#efefef'
 			}
@@ -371,9 +371,9 @@ let chartHealtStatus = new Chart(healtStatus, {
 							return numeral(value).format('0,0');
 						},
 
-						min         : -6500, // it is for ignoring negative step.
+						min         : 0, // it is for ignoring negative step.
 						beginAtZero : true,
-						stepSize    : 1250 // if i use this it always set it '1', which look very awkward if it have high value  e.g. '100'.
+						stepSize    : 5000 // if i use this it always set it '1', which look very awkward if it have high value  e.g. '100'.
 					}
 				}
 			]
