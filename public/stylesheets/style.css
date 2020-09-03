@@ -596,6 +596,7 @@ canvas {
       min-height: 37.5vh; } }
 
 .navbar {
+  display: none;
   position: relative;
   width: 100%;
   height: auto;
@@ -626,6 +627,7 @@ canvas {
     text-align: right; }
 
 .sidebar {
+  display: none;
   position: fixed;
   height: 100%;
   width: 30rem;
@@ -742,7 +744,7 @@ canvas {
 
 .charts {
   background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.85), rgba(174, 198, 214, 0.85)), url("../images/covid_overview-bg.jpg");
-  background-size: cover;
+  background-size: 70%;
   background-position: top right;
   color: white;
   padding-bottom: 5rem; }
