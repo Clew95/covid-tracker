@@ -1,0 +1,51 @@
+<%- include('partials/head') %>
+<div class="root">
+    <main class="main main--full">
+        <section class="regioni">
+            <% for(let i = 0; i < data.length; i++) {  %>
+                <%let tmp_value = {}%>
+                <% for(let k = 0; k < data.length-i-1 ; k++) {  %>
+
+                    <%  if(parseInt(data[k].nuovi_positivi) < parseInt(data[k+1].nuovi_positivi) ){  %>
+                        <% tmp_value = data[k]; data[k] = data[k+1]; data[k+1] = tmp_value %>
+                    <%}%>
+                <%}%>
+            <%}%>
+
+            <%let south_positives = 0, center_positives = 0, north_positives = 0;%>
+            <% for(let i = 0; i < data.length; i++) {  %>
+                <% if(parseFloat(data[i].lat) < 41.8 || parseInt(data[i].codice_regione) === 13) { south_positives += data[i].nuovi_positivi} %>
+                <% if(parseFloat(data[i].lat) > 41.8 && parseFloat(data[i].lat) < 44) { center_positives += data[i].nuovi_positivi} %>
+                <% if(parseFloat(data[i].lat) > 44) { north_positives += data[i].nuovi_positivi} %>
+
+                <div class="regioni__regione card__regioni ">
+                    <h1><%=`${i+1}. ${data[i].denominazione_regione}`%></h1>
+                    
+                        <div class="card__regioni--dflex">
+                            <h4 class="card__regioni__title">Nuovi Positivi <i class="fas fa-viruses"></i>: </h4>
+                            <p class="card__regioni__data" id="nuovi_positivi">
+                                <%= data[i].nuovi_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                            </p>
+                        </div>
+                        <div class="card__regioni--dflex">
+                            <h4 class="card__regioni__title">Tamponi <i class="fas fa-vial"></i>: </h4>
+                            <p class="card__regioni__data" id="tamponi">
+                                <%= data[i].tamponi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                            </p>
+                        </div>
+                </div>
+            <%}%>
+
+                <div class="card__regioni">
+                    <h4 class="card__regioni__title">Positivi Geografici<i class="fas fa-vial"></i>: </h4>
+                    <p class="card__regioni__data" id="positivi_geografici">
+                        <p class="card__regioni__data">Positivi Nord: <%= north_positives %></p>
+                        <p class="card__regioni__data">Positivi Centro: <%= center_positives %></p>
+                        <p class="card__regioni__data">Positivi Sud: <%= south_positives %></p>
+                    </p>
+                </div>            
+            </section>
+            <a href="/covid" class="btn btn--primary btn__animated--left u-margin-left-m u-margin-top-m">Vai ai dati nazionali</a>
+    </main>
+</div>
+<%- include('partials/tail') %>

@@ -73,9 +73,15 @@
 		background-color: $color-tertiary;
 	}
 
-	&--animated {
-		animation: moveInLeft .5s ease-out .75s;
-		animation-fill-mode: backwards;
+	&__animated {
+		&--left {
+			animation: moveInRight .5s ease-out .75s;
+			animation-fill-mode: backwards;
+		}
+		&--right {
+			animation: moveInLeft .5s ease-out .75s;
+			animation-fill-mode: backwards;
+		}
 	}
 }
 

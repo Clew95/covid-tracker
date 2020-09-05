@@ -5,7 +5,7 @@
     <main class="main main--full">
         <%- include("partials/navbar") %>
         <section class="stats u-padding-bottom-m">
-            <h3 class="heading-tertiary u-padding-left-m u-padding-top-l u-padding-top-xl">Panoramica Generale</h3>
+            <h3 class="heading-tertiary u-padding-left-m u-padding-top-s">Panoramica Generale</h3>
             <div class="stats__container">
                 <div class="stats__box">
                     <div class="card card--flexfull">
@@ -158,6 +158,7 @@
 
             <span class="span--last_update u-margin-left-m">Ultimo aggiornamento
                 <%= lastUpdate.data.slice(0, lastUpdate.data.lastIndexOf('T')) + ' alle ore: ' + lastUpdate.data.slice(lastUpdate.data.lastIndexOf('T') + 1, lastUpdate.data.length -3 ) %>
+                <a href="/regioni" class="btn btn--primary btn__animated--left u-margin-left-m u-margin-top-s u-margin-bottom-s">Vai ai dati regionali</a>
             </span>
         </section>
 
