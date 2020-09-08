@@ -541,6 +541,43 @@ body {
   animation: moveInLeft .5s ease-out .75s;
   animation-fill-mode: backwards; }
 
+.btn__more-details {
+  background: rgba(174, 198, 214, 0.5);
+  width: fit-content;
+  margin: 0 auto; }
+  .btn__more-details, .btn__more-details:link, .btn__more-details:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    padding: .5rem 1.5rem;
+    display: inline-block;
+    border-radius: .25rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer; }
+  .btn__more-details:hover {
+    transform: translateY(-1.5px); }
+    .btn__more-details:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn__more-details:active, .btn__more-details:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.2); }
+  .btn__more-details::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; }
+
 .anchor-btn, .anchor-btn:link, .anchor-btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -628,8 +665,7 @@ body {
     box-shadow: 1px 1px 6px -1px rgba(17, 17, 17, 0.3), -5px -5px 2px -2px rgba(254, 254, 254, 0.5);
     background: #fefefe; }
     .card__regioni h2 {
-      text-align: center;
-      margin-bottom: .75rem; }
+      text-align: center; }
     .card__regioni__rank {
       position: absolute;
       padding: 4px 10px;
@@ -639,11 +675,11 @@ body {
       font-size: 1.25rem;
       border-bottom-right-radius: 4px; }
       .card__regioni__rank--high {
-        background: rgba(230, 86, 81, 0.5); }
+        background: rgba(230, 86, 81, 0.4); }
       .card__regioni__rank--medium {
-        background: rgba(255, 153, 49, 0.5); }
+        background: rgba(255, 153, 49, 0.4); }
       .card__regioni__rank--low {
-        background: rgba(7, 193, 128, 0.5); }
+        background: rgba(7, 193, 128, 0.25); }
     .card__regioni__title {
       color: #aeafd6;
       font-size: 1.5rem;
@@ -854,11 +890,13 @@ canvas {
         .charts__inline__container--1-of-3 {
           width: 100%; } }
 
-.regioni {
+.main__regioni {
   background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.85), rgba(174, 198, 214, 0.85)), url("../images/covid_overview-bg.jpg");
   background-size: 70%;
   background-position: top right;
-  padding: 3rem;
+  padding: 3rem; }
+
+.regioni {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 2.5rem; }
@@ -872,3 +910,23 @@ canvas {
   .regioni {
     grid-template-columns: repeat(1, 1fr);
     gap: .75rem; } }
+
+.working {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.9), rgba(174, 198, 214, 0.9)), url("../images/covid_overview-bg.jpg");
+  background-size: 75%;
+  background-position: top right;
+  padding: 3rem; }
+  .working__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #fefefe;
+    text-shadow: 0.5px 0.5px 5px rgba(17, 17, 17, 0.9); }
+  .working__buttons {
+    text-align: center; }

@@ -83,6 +83,60 @@
 			animation-fill-mode: backwards;
 		}
 	}
+
+	&__more-details {
+		background: rgba($color-basic, .5);
+		width: fit-content;
+		margin: 0 auto;
+		&,
+		&:link,
+		&:visited {
+			text-transform: uppercase;
+			text-decoration: none;
+			text-align: center;
+			padding: .5rem 1.5rem;
+			display: inline-block;
+			border-radius: .25rem;
+			transition: all .2s;
+
+			position: relative;
+			font-size: 1.2rem;
+
+			//Cahnge for the <button> element
+			border: none;
+			cursor: pointer;
+		}
+
+		&:hover {
+			transform: translateY(-1.5px);
+
+			&::after {
+				transform: scaleX(1.4) scaleY(1.6);
+				opacity: 0;
+			}
+		}
+
+		&:active,
+		&:focus {
+			outline: none;
+			transform: translateY(-1px);
+			box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+		}
+
+		&::after {
+			content: "";
+			display: inline-block;
+			height: 100%;
+			width: 100%;
+
+			border-radius: 10rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			transition: all .4s;
+		}
+	}
 }
 
 .anchor-btn {
