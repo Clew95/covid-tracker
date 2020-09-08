@@ -24,7 +24,14 @@
             <% if(parseFloat(lastDay[i].lat) > 44) { north_positives += lastDay[i].nuovi_positivi} %>
 
             <div class="regioni__regione card__regioni ">
-                <h1><%=`${i+1}. ${lastDay[i].denominazione_regione}`%></h1>
+                <% if(i < 3) { %>
+                    <span class="card__regioni__rank card__regioni__rank--high"><%=`${i+1}`%> </span>
+                <% } else if(i < 10) { %>
+                    <span class="card__regioni__rank card__regioni__rank--medium"><%=`${i+1}`%> </span>
+                <% }  else { %>
+                    <span class="card__regioni__rank card__regioni__rank--low"><%=`${i+1}`%> </span>
+                <% } %>
+                <h2 class=""><%=`${lastDay[i].denominazione_regione}`%></h2>
 
                 <div class="card__regioni--dflex">
                     <h4 class="card__regioni__title">Nuovi Positivi <i class="fas fa-viruses"></i>: </h4>
