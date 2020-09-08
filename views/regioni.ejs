@@ -39,12 +39,7 @@
                         <%= lastDay[i].totale_casi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                     </p>
                 </div>
-                <div class="card__regioni--dflex">
-                    <h4 class="card__regioni__title">Casi Attivi <i class="fas fa-vial"></i>: </h4>
-                    <p class="card__regioni__data" id="totale_positivi">
-                        <%= lastDay[i].totale_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                    </p>
-                </div>
+
                 <div class="card__regioni--dflex">
                     <h4 class="card__regioni__title">Nuovi Positivi <i class="fas fa-viruses"></i>: </h4>
                     <p class="card__regioni__data" id="nuovi_positivi">
@@ -65,6 +60,27 @@
 
                     </p>
                 </div>
+
+                <div class="card__regioni--dflex">
+                    <h4 class="card__regioni__title">Guariti <i class="fas fa-heartbeat"></i>: </h4>
+                    <p class="card__regioni__data" id="guariti">
+                        <%= lastDay[i].dimessi_guariti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                        <span class="span--positive">
+                            +<%= (lastDay[i].dimessi_guariti - secondLastDay[i].dimessi_guariti).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%>
+                        </span> 
+                    </p>
+                </div>
+
+                <div class="card__regioni--dflex">
+                    <h4 class="card__regioni__title">Morti <i class="fas fa-cross"></i>: </h4>
+                    <p class="card__regioni__data" id="deceduti">
+                        <%= lastDay[i].deceduti.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                        <span class="span--negative">
+                            +<%= (lastDay[i].deceduti - secondLastDay[i].deceduti).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%>
+                        </span> 
+                    </p>
+                </div>
+
                 <div class="card__regioni--dflex">
                     <h4 class="card__regioni__title">Tamponi <i class="fas fa-vial"></i>: </h4>
                     <p class="card__regioni__data" id="tamponi">
@@ -74,6 +90,8 @@
                         </span> 
                     </p>
                 </div>
+
+
 
             <a href="/regioni/<%= lastDay[i].denominazione_regione.toLowerCase() %>" class="btn__more-details u-margin-top-xs u-margin-bottom-xs">Dettagli <%= lastDay[i].denominazione_regione %></a>
 
