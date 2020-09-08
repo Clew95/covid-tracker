@@ -1,39 +1,61 @@
+<% let lastDay = data.slice(-21);%>
+<% let secondLastDay = data.slice(data.length-42, data.length-21);%>
+
 <%- include('partials/head') %>
+
 <div class="root">
     <main class="main main--full">
         <section class="regioni">
-            <% for(let i = 0; i < data.length; i++) {  %>
-                <%let tmp_value = {}%>
-                <% for(let k = 0; k < data.length-i-1 ; k++) {  %>
+            <% for(let i = 0; i < lastDay.length; i++) {  %>
+            <%let tmp_value = {}%>
+            <% for(let k = 0; k < lastDay.length-i-1 ; k++) {  %>
 
-                    <%  if(parseInt(data[k].nuovi_positivi) < parseInt(data[k+1].nuovi_positivi) ){  %>
-                        <% tmp_value = data[k]; data[k] = data[k+1]; data[k+1] = tmp_value %>
-                    <%}%>
+            <%  if(parseInt(lastDay[k].nuovi_positivi) < parseInt(lastDay[k+1].nuovi_positivi) ){  %>
+            <% tmp_value = lastDay[k]; lastDay[k] = lastDay[k+1]; lastDay[k+1] = tmp_value %>
+            <% tmp_value = secondLastDay[k]; secondLastDay[k] = secondLastDay[k+1]; secondLastDay[k+1] = tmp_value %>
+            <%}%>
                 <%}%>
             <%}%>
 
             <%let south_positives = 0, center_positives = 0, north_positives = 0;%>
-            <% for(let i = 0; i < data.length; i++) {  %>
-                <% if(parseFloat(data[i].lat) < 41.8 || parseInt(data[i].codice_regione) === 13) { south_positives += data[i].nuovi_positivi} %>
-                <% if(parseFloat(data[i].lat) > 41.8 && parseFloat(data[i].lat) < 44) { center_positives += data[i].nuovi_positivi} %>
-                <% if(parseFloat(data[i].lat) > 44) { north_positives += data[i].nuovi_positivi} %>
+            <% for(let i = 0; i < lastDay.length; i++) {  %>
+            <% if(parseFloat(lastDay[i].lat) < 41.8 || parseInt(lastDay[i].codice_regione) === 13) { south_positives += lastDay[i].nuovi_positivi} %>
+            <% if(parseFloat(lastDay[i].lat) > 41.8 && parseFloat(lastDay[i].lat) < 44) { center_positives += lastDay[i].nuovi_positivi} %>
+            <% if(parseFloat(lastDay[i].lat) > 44) { north_positives += lastDay[i].nuovi_positivi} %>
 
-                <div class="regioni__regione card__regioni ">
-                    <h1><%=`${i+1}. ${data[i].denominazione_regione}`%></h1>
-                    
-                        <div class="card__regioni--dflex">
-                            <h4 class="card__regioni__title">Nuovi Positivi <i class="fas fa-viruses"></i>: </h4>
-                            <p class="card__regioni__data" id="nuovi_positivi">
-                                <%= data[i].nuovi_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                            </p>
-                        </div>
-                        <div class="card__regioni--dflex">
-                            <h4 class="card__regioni__title">Tamponi <i class="fas fa-vial"></i>: </h4>
-                            <p class="card__regioni__data" id="tamponi">
-                                <%= data[i].tamponi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
-                            </p>
-                        </div>
+            <div class="regioni__regione card__regioni ">
+                <h1><%=`${i+1}. ${lastDay[i].denominazione_regione}`%></h1>
+
+                <div class="card__regioni--dflex">
+                    <h4 class="card__regioni__title">Nuovi Positivi <i class="fas fa-viruses"></i>: </h4>
+                    <p class="card__regioni__data" id="nuovi_positivi">
+                        <%= lastDay[i].nuovi_positivi %>
+                        <%if(lastDay[i].nuovi_positivi > secondLastDay[i].nuovi_positivi) { %>
+                        <span class="span--incremento"><span
+                                class="span--incremento__numero">+<%= lastDay[i].nuovi_positivi - secondLastDay[i].nuovi_positivi %></span>
+                            <i class="fas fa-arrow-up  span--incremento__animated"></i></span>
+                        <% } else if(lastDay[i].nuovi_positivi < secondLastDay[i].nuovi_positivi){%>
+                            <span class="span--decremento"><span
+                                class="span--decremento__numero"><%= lastDay[i].nuovi_positivi - secondLastDay[i].nuovi_positivi %></span>
+                            <i class="fas fa-arrow-down span--decremento__animated"></i></span> 
+                        <% } else {%>
+                            <span class="span--stazionario"><span
+                                class="span--stazionario__numero"><%= lastDay[i].nuovi_positivi - secondLastDay[i].nuovi_positivi %></span>
+                            <i class="fas fa-equals span--stazionario__animated"></i></span>
+                        <% } %> 
+
+                    </p>
                 </div>
+                <div class="card__regioni--dflex">
+                    <h4 class="card__regioni__title">Tamponi <i class="fas fa-vial"></i>: </h4>
+                    <p class="card__regioni__data" id="tamponi">
+                        <%= lastDay[i].tamponi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                        <span class="span--neutral">
+                            +<%= (lastDay[i].tamponi - secondLastDay[i].tamponi).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%>
+                        </span> 
+                    </p>
+                </div>
+            </div>
             <%}%>
 
                 <div class="card__regioni">
@@ -43,9 +65,12 @@
                         <p class="card__regioni__data">Positivi Centro: <%= center_positives %></p>
                         <p class="card__regioni__data">Positivi Sud: <%= south_positives %></p>
                     </p>
-                </div>            
-            </section>
-            <a href="/covid" class="btn btn--primary btn__animated--left u-margin-left-m u-margin-top-m">Vai ai dati nazionali</a>
+                </div>
+        </section>
+        <span class="span--last_update u-margin-left-m">Ultimo aggiornamento
+            <%= lastDay[lastDay.length-1].data.slice(0, lastDay[lastDay.length-1].data.lastIndexOf('T')) + ' alle ore: ' + lastDay[lastDay.length-1].data.slice(lastDay[lastDay.length-1].data.lastIndexOf('T') + 1, lastDay[lastDay.length-1].data.length -3 ) %>
+            <a href="/covid" class="btn btn--primary btn__animated--left u-margin-left-m u-margin-top-s u-margin-bottom-s">Vai ai dati Nazionali</a>
+        </span>
     </main>
 </div>
 <%- include('partials/tail') %>

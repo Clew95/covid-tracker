@@ -110,13 +110,14 @@ body {
 
 	&--incremento {
 		color: $color-primary-dark;
-		font-size: 2.5rem;
+		font-size: 2rem;
 
 		margin-left: .75rem;
 
 		transform: translateY(0);
 
 		&__animated {
+			margin-left: 1.5rem;
 			animation: incremento 1s infinite;
 		}
 
@@ -130,14 +131,35 @@ body {
 
 	&--decremento {
 		color: rgba($color-basic, .75);
-		font-size: 2.5rem;
+		font-size: 2rem;
 
 		margin-left: .75rem;
 
 		transform: translateY(-10px);
 
 		&__animated {
+			margin-left: 1.5rem;
 			animation: decremento 1s infinite;
+		}
+
+		&__numero {
+			font-size: 1.1rem;
+			font-weight: 500;
+
+			color: inherit;
+		}
+	}
+	&--stazionario {
+		color: rgba($color-warning, .75);
+		font-size: 2.5rem;
+
+		margin-left: 1rem;
+
+		transform: rotate(0);
+
+		&__animated {
+			margin-left: 2rem;
+			animation: stazionario 1.5s infinite;
 		}
 
 		&__numero {

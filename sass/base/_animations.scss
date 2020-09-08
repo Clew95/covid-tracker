@@ -63,3 +63,17 @@
 		transform: translateY(0);
 	}
 }
+
+@keyframes stazionario {
+	0% {
+		opacity: 1;
+		transform: rotate(0);
+	}
+	50% {
+		opacity: .7;
+	}
+	100% {
+		opacity: 1;
+		transform: rotate(360deg);
+	}
+}

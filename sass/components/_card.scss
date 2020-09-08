@@ -30,6 +30,10 @@
 	}
 
 	&__regioni {
+		display: grid;
+		grid-template-rows: 1fr;
+		gap: .5rem;
+
 		margin: .25rem;
 		padding: .5rem 1rem;
 		border-radius: 5px;
