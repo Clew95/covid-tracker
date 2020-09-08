@@ -39,7 +39,12 @@
                         <%= lastDay[i].totale_casi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                     </p>
                 </div>
-
+                <div class="card__regioni--dflex">
+                    <h4 class="card__regioni__title">Casi Attivi <i class="fas fa-vial"></i>: </h4>
+                    <p class="card__regioni__data" id="totale_positivi">
+                        <%= lastDay[i].totale_positivi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                    </p>
+                </div>
                 <div class="card__regioni--dflex">
                     <h4 class="card__regioni__title">Nuovi Positivi <i class="fas fa-viruses"></i>: </h4>
                     <p class="card__regioni__data" id="nuovi_positivi">

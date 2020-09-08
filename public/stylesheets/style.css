@@ -910,23 +910,3 @@ canvas {
   .regioni {
     grid-template-columns: repeat(1, 1fr);
     gap: .75rem; } }
-
-.working {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.9), rgba(174, 198, 214, 0.9)), url("../images/covid_overview-bg.jpg");
-  background-size: 75%;
-  background-position: top right;
-  padding: 3rem; }
-  .working__container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    text-transform: uppercase;
-    color: #fefefe;
-    text-shadow: 0.5px 0.5px 5px rgba(17, 17, 17, 0.9); }
-  .working__buttons {
-    text-align: center; }
