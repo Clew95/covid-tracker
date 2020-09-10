@@ -1,7 +1,7 @@
 .form {
+	padding: 1rem 2rem;
+
 	&--flex {
-		display: inline-flex;
-		justify-content: center;
 		min-width: 250px;
 
 		@include respond(phone) {
@@ -13,9 +13,38 @@
 		& select,
 		select:focus,
 		select:active {
+			font-size: 1.4rem;
+
 			border: none !important;
 			margin: .75rem;
-			padding: 1rem;
+			padding: .75rem 1rem;
+
+			transition: all .15s ease-in;
+			border-bottom: .5px solid rgba($color-black, .5);
+
+		}
+		
+		@include respond(tab-port) {
+			margin: 0 auto;
+
+
+			& select,
+			select:focus,
+			select:active {
+				display: block;    
+				font-size: 1.8rem;
+
+				margin: 1.5rem auto;
+
+				background: none;				
+			}
+			
+			& select:focus,{
+			}
+
+			& button {
+				margin: 1rem 0!important;
+			}
 		}
 	}
 }

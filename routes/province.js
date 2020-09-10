@@ -14,4 +14,23 @@ router.get('/', (req, res) => {
 		});
 });
 
+router.get('/:provincia', (req, res) => {
+	axios
+		.get('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-province.json')
+		.then((response) => {
+			const DATA_BUNCH = response.data.filter(function(e) {
+				return parseInt(e.codice_provincia) === parseInt(req.params.provincia);
+			});
+			res.render('provinceDetails', {
+				baseUrl: req.baseUrl,
+				data: DATA_BUNCH,
+				isARegion: false,
+				isAProvince: true
+			});
+		})
+		.catch((err) => {
+			res.send(err);
+		});
+});
+
 module.exports = router;

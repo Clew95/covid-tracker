@@ -499,6 +499,13 @@ body {
 .u-fullwidth {
   width: 100% !important; }
 
+@media only screen and (max-width: 56.25em) {
+  .u-container--block {
+    display: block !important; }
+    .u-container--block > * {
+      display: block !important;
+      margin: .5rem 0 !important; } }
+
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -803,20 +810,34 @@ canvas {
     canvas {
       min-height: 37.5vh; } }
 
-.form--flex {
-  display: inline-flex;
-  justify-content: center;
-  min-width: 250px; }
-  @media only screen and (max-width: 37.5em) {
-    .form--flex {
-      display: block; } }
-
-.form__province select,
-.form__province select:focus,
-.form__province select:active {
-  border: none !important;
-  margin: .75rem;
-  padding: 1rem; }
+.form {
+  padding: 1rem 2rem; }
+  .form--flex {
+    min-width: 250px; }
+    @media only screen and (max-width: 37.5em) {
+      .form--flex {
+        display: block; } }
+  .form__province select,
+  .form__province select:focus,
+  .form__province select:active {
+    font-size: 1.4rem;
+    border: none !important;
+    margin: .75rem;
+    padding: .75rem 1rem;
+    transition: all .15s ease-in;
+    border-bottom: 0.5px solid rgba(17, 17, 17, 0.5); }
+  @media only screen and (max-width: 56.25em) {
+    .form__province {
+      margin: 0 auto; }
+      .form__province select,
+      .form__province select:focus,
+      .form__province select:active {
+        display: block;
+        font-size: 1.8rem;
+        margin: 1.5rem auto;
+        background: none; }
+      .form__province button {
+        margin: 1rem 0 !important; } }
 
 .navbar {
   display: none;
@@ -1051,3 +1072,10 @@ canvas {
   .province {
     grid-template-columns: repeat(1, 1fr);
     gap: .75rem; } }
+
+.province-details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }

@@ -1,0 +1,13 @@
+<%- include("partials/head") %>
+    <main class="main main--full">
+        <section class="province-details">
+            <div class="province-details__card card card--flexfull">    
+                <h2 class="heading-secondary"><%= data[data.length-1].denominazione_provincia %></h2>
+                <h4 class="card__title">Casi Totali <i class="fas fa-viruses"></i></h4>
+                <p class="card__data" id="totale_casi">
+                    <%= data[data.length-1].totale_casi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></p>
+            </div>
+        </section>
+    </main>
+
+<%- include('partials/tail') %>

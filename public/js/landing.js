@@ -10,10 +10,9 @@ const params = new URLSearchParams(window.location.search);
 searchBtn.addEventListener('click', function(event) {
 	event.preventDefault();
 	if (this.ableToSearch) {
-		alert('la funzione non è ancora disponibile');
-		/*const regione = selectRegione.options[selectRegione.selectedIndex].value;
+		const regione = selectRegione.options[selectRegione.selectedIndex].value;
 		const provincia = selectProvincia.options[selectProvincia.selectedIndex].value;
-		location.href = `\\regioni\\province\search?rCode=${regione}&pCode=${provincia}`;*/
+		location.href = `\\province\\${provincia}`;
 	}
 	else {
 		alert('Devi selezionare la regione e la provincia prima di proseguire\nLa funzione non è ancora disponibile');
