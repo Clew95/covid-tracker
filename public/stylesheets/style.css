@@ -920,6 +920,8 @@ canvas {
 		url('../images/landing-bg.jpg');*/
   background-size: cover;
   background-position: center bottom; }
+  .landing__text-box {
+    min-width: 350px; }
   .landing__container {
     position: absolute;
     top: 50%;
