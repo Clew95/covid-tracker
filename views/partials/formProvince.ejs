@@ -1,0 +1,17 @@
+<form action="/regioni" method="GET" class="form form--flex form__province u-margin-top-m">
+    <select name="regione" id="regione">
+        <option value="" disabled selected>Scegli regione</option>
+        <% for(let i = 0; i < regionDen.length; i++) {  %>
+            <option value=<%= regionCode[i] %>><%= regionDen[i]%></option>
+        <% } %>
+    </select>
+
+    <select name="provincia" id="provincia"  disabled>
+        <option value="">Seleziona prima la regione</option>
+    </select>
+    
+    <button class="btn btn--alternative-2 u-margin-left-m" id="searchBtn" type="submit">Cerca</button>
+    <script>
+        const formData = <%- JSON.stringify(data) %>;
+    </script>
+</form>

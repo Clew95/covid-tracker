@@ -1,4 +1,5 @@
 let dataManager = {};
+let utils = {};
 
 //This is a funciton to covert
 dataManager.numberWithCommas = function(value) {
@@ -28,7 +29,8 @@ dataManager.generateDailyValues = function(dataElement) {
 		if (el) {
 			dailyElement.push(el - tmp_value);
 			tmp_value = el; //tmp_value = 4324
-		} else {
+		}
+		else {
 			dailyElement.push(0);
 		}
 	});
@@ -40,7 +42,9 @@ dataManager.percBuffersPositives = function(buffers, positive) {
 	let percArray = [];
 
 	for (let idx = 0; idx < buffers.length; idx++) {
-		percArray.push(parseFloat((positive[idx] * 100 / buffers[idx]).toFixed(3)));
+		positive[idx] > 0
+			? percArray.push(parseFloat((positive[idx] * 100 / buffers[idx]).toFixed(3)))
+			: percArray.push(0);
 	}
 	return percArray;
 };
@@ -60,3 +64,17 @@ dataManager.createDataElem = function(DOMelement, dataArray, dates) {
 dataManager.numberWithCommas = function(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
+
+utils.debounce = (func, delay = 1000) => {
+	let timeoutId;
+	return (...args) => {
+		if (timeoutId) {
+			clearTimeout(timeoutId);
+		}
+		timeoutId = setTimeout(() => {
+			func.apply(null, args);
+		}, delay);
+	};
+};
+
+utils.inputDeamon = function() {};

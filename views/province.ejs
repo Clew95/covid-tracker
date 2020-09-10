@@ -1,0 +1,27 @@
+<%- include('partials/head') %>
+
+<div class="root">
+    <main class="main main__province main--full">
+        <h3 class="heading-tertiary u-padding-left-m u-padding-top-s">Panoramica Generale - Province</h3>
+        <section class="province">
+            <% for(let i = 0; i < data.length; i++) {  %>
+                <div class="province__regione card__province ">
+                    <h2 class=""><%=`${data[i].denominazione_regione} - ${data[i].denominazione_provincia}`%></h2>
+                    <div class="card__province--dflex">
+                        <h4 class="card__province__title">Totale Casi<i class="fas fa-vial"></i>: </h4>
+                        <p class="card__province__data" id="totale_positivi">
+                            <%= data[i].totale_casi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                        </p>
+                    </div>
+                </div>
+            <%}%>
+        </section>
+        <span class="span--last_update u-margin-left-m">Ultimo aggiornamento
+            <%= data[data.length-1].data.slice(0, data[data.length-1].data.lastIndexOf('T')) + ' alle ore: ' + data[data.length-1].data.slice(data[data.length-1].data.lastIndexOf('T') + 1, data[data.length-1].data.length -3 ) %>
+            <a href="/covid" class="btn btn--primary btn__animated--left u-margin-left-m u-margin-top-s u-margin-bottom-s">Vai ai dati Nazionali</a>
+            <a href="/regioni" class="btn btn--primary btn__animated--right u-margin-left-m u-margin-top-s u-margin-bottom-s">Vai ai dati Regionali</a>
+        </span>
+        
+    </main>
+</div>
+<%- include('partials/tail') %>

@@ -1,0 +1,28 @@
+.main__province {
+	background: linear-gradient(to right bottom, rgba($color-basic, .85), rgba($color-basic, .85)),
+		url('../images/covid_overview-bg.jpg');
+	background-size: 70%;
+	background-position: top right;
+
+	padding: 3rem;
+}
+
+.province {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 2.5rem;
+}
+
+@include respond(tab-port) {
+	.province {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+}
+
+@include respond(phone) {
+	.province {
+		grid-template-columns: repeat(1, 1fr);
+		gap: .75rem;
+	}
+}

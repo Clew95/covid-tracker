@@ -37,14 +37,16 @@ router.get('/:regione', (req, res) => {
 					0
 						? true
 						: false,
-				isARegion                       : true
+				isARegion                       : true,
+				isAProvince                     : false
 			};
 
 			res.render('regionDetails', {
-				baseUrl   : req.baseUrl,
-				data      : DATA_BUNCH,
-				settings  : DATA_SETTINGS,
-				isARegion : DATA_SETTINGS.isARegion
+				baseUrl     : req.baseUrl,
+				data        : DATA_BUNCH,
+				settings    : DATA_SETTINGS,
+				isARegion   : DATA_SETTINGS.isARegion,
+				isAProvince : DATA_SETTINGS.isAProvince
 			});
 		});
 });

@@ -36,6 +36,20 @@ a {
 ul {
   list-style: none; }
 
+input,
+input:focus,
+input:active button,
+button:focus,
+button:active,
+select,
+select:focus,
+select:active,
+option,
+option:focus,
+option:active {
+  outline: none;
+  border: none; }
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -60,6 +74,14 @@ ul {
   0% {
     opacity: 0;
     transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem); }
   100% {
     opacity: 1;
     transform: translateY(0); } }
@@ -533,12 +555,24 @@ body {
   color: #f7f7f7;
   background-color: #11a1fd; }
 
+.btn--alternative-2 {
+  color: #f7f7f7;
+  background-color: #1d3557; }
+
 .btn__animated--left {
   animation: moveInRight .5s ease-out .75s;
   animation-fill-mode: backwards; }
 
 .btn__animated--right {
   animation: moveInLeft .5s ease-out .75s;
+  animation-fill-mode: backwards; }
+
+.btn__animated--top {
+  animation: moveInTop .5s ease-out .75s;
+  animation-fill-mode: backwards; }
+
+.btn__animated--bottom {
+  animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards; }
 
 .btn__more-details {
@@ -577,6 +611,38 @@ body {
     left: 0;
     z-index: -1;
     transition: all .4s; }
+
+.btn__back-arrow, .btn__back-arrow:link, .btn__back-arrow:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .5rem 0;
+  display: inline-block;
+  border-radius: .25rem;
+  transition: all .2s;
+  position: relative;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer; }
+
+.btn__back-arrow:hover {
+  transform: translateX(-2rem); }
+  .btn__back-arrow:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    margin-left: 1.8rem;
+    opacity: 1; }
+
+.btn__back-arrow:active, .btn__back-arrow:focus {
+  outline: none;
+  transform: translateX(-1.5rem); }
+
+.btn__back-arrow::after {
+  content: "Back";
+  text-transform: uppercase;
+  display: inline-block;
+  margin-left: 0;
+  font-size: 1.2rem;
+  transition: all .15s ease-in-out;
+  opacity: 0; }
 
 .anchor-btn, .anchor-btn:link, .anchor-btn:visited {
   text-transform: uppercase;
@@ -631,6 +697,18 @@ body {
       transform-origin: 0% 0%; }
     .hamburger__line:nth-last-child(2) {
       transform-origin: 0% 100%; }
+
+.back-arrow {
+  position: absolute;
+  top: 1.25rem;
+  right: 0;
+  color: #fefefe; }
+  .back-arrow i {
+    font-size: 3.5rem; }
+  .back-arrow__container {
+    display: inline-block;
+    justify-content: center;
+    align-items: center; }
 
 .card {
   margin: 1rem;
@@ -692,6 +770,31 @@ body {
       display: inline-flex;
       justify-content: center;
       align-items: center; }
+  .card__province {
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: .5rem;
+    margin: .25rem;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    min-width: 20rem;
+    box-shadow: 1px 1px 6px -1px rgba(17, 17, 17, 0.3), -5px -5px 2px -2px rgba(254, 254, 254, 0.5);
+    background: #fefefe; }
+    .card__province h2 {
+      text-align: center; }
+    .card__province__title {
+      color: #aeafd6;
+      font-size: 1.5rem;
+      font-weight: 400;
+      text-transform: uppercase; }
+    .card__province__data {
+      font-size: 1.5rem;
+      margin-left: 1.2rem; }
+    .card__province--dflex {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center; }
 
 canvas {
   margin: 0 auto;
@@ -699,6 +802,21 @@ canvas {
   @media only screen and (max-width: 56.25em) {
     canvas {
       min-height: 37.5vh; } }
+
+.form--flex {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 250px; }
+  @media only screen and (max-width: 37.5em) {
+    .form--flex {
+      display: block; } }
+
+.form__province select,
+.form__province select:focus,
+.form__province select:active {
+  border: none !important;
+  margin: .75rem;
+  padding: 1rem; }
 
 .navbar {
   display: none;
@@ -908,5 +1026,26 @@ canvas {
 
 @media only screen and (max-width: 37.5em) {
   .regioni {
+    grid-template-columns: repeat(1, 1fr);
+    gap: .75rem; } }
+
+.main__province {
+  background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.85), rgba(174, 198, 214, 0.85)), url("../images/covid_overview-bg.jpg");
+  background-size: 70%;
+  background-position: top right;
+  padding: 3rem; }
+
+.province {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.5rem; }
+
+@media only screen and (max-width: 56.25em) {
+  .province {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; } }
+
+@media only screen and (max-width: 37.5em) {
+  .province {
     grid-template-columns: repeat(1, 1fr);
     gap: .75rem; } }

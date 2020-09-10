@@ -3,6 +3,11 @@
 <div id="root">
     <%- include("partials/sidebar") %>
     <main class="main main--full">
+        <div class="back-arrow">
+            <div class="back-arrow__container">
+                <a href="/regioni" class="btn__back-arrow"><i class="far fa-arrow-alt-circle-left"></i></a>
+            </div>
+        </div>
         <%- include("partials/navbar") %>
         <section class="stats u-padding-bottom-m">
             <h3 class="heading-tertiary u-padding-left-m u-padding-top-s"><%= lastUpdate.denominazione_regione %> - Panoramica Generale</h3>
@@ -158,7 +163,7 @@
 
             <span class="span--last_update u-margin-left-m">Ultimo aggiornamento
                 <%= lastUpdate.data.slice(0, lastUpdate.data.lastIndexOf('T')) + ' alle ore: ' + lastUpdate.data.slice(lastUpdate.data.lastIndexOf('T') + 1, lastUpdate.data.length -3 ) %>
-                <a href="/regioni" class="btn btn--primary btn__animated--left u-margin-left-m u-margin-top-s u-margin-bottom-s">Vai ai dati regionali</a>
+                <a href="/regioni" class="btn btn--primary btn__animated--left u-margin-left-m u-margin-top-s u-margin-bottom-s">Torna ai dati regionali</a>
             </span>
         </section>
 

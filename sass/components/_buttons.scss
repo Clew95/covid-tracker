@@ -73,6 +73,11 @@
 		background-color: $color-tertiary;
 	}
 
+	&--alternative-2 {
+		color: $color-grey-light-1;
+		background-color: $color-alternative-2;
+	}
+
 	&__animated {
 		&--left {
 			animation: moveInRight .5s ease-out .75s;
@@ -80,6 +85,16 @@
 		}
 		&--right {
 			animation: moveInLeft .5s ease-out .75s;
+			animation-fill-mode: backwards;
+		}
+
+		&--top {
+			animation: moveInTop .5s ease-out .75s;
+			animation-fill-mode: backwards;
+		}
+
+		&--bottom {
+			animation: moveInBottom .5s ease-out .75s;
 			animation-fill-mode: backwards;
 		}
 	}
@@ -135,6 +150,55 @@
 			left: 0;
 			z-index: -1;
 			transition: all .4s;
+		}
+	}
+
+	&__back-arrow {
+		&,
+		&:link,
+		&:visited {
+			text-transform: uppercase;
+			text-decoration: none;
+			padding: .5rem 0;
+			display: inline-block;
+			border-radius: .25rem;
+			transition: all .2s;
+
+			position: relative;
+			font-size: $default-font-size;
+
+			//Cahnge for the <button> element
+			border: none;
+			cursor: pointer;
+		}
+
+		&:hover {
+			transform: translateX(-2rem);
+
+			&::after {
+				transform: scaleX(1.4) scaleY(1.6);
+				margin-left: 1.8rem;
+
+				opacity: 1;
+			}
+		}
+
+		&:active,
+		&:focus {
+			outline: none;
+			transform: translateX(-1.5rem);
+		}
+
+		&::after {
+			content: "Back";
+			text-transform: uppercase;
+			display: inline-block;
+
+			margin-left: 0;
+			font-size: 1.2rem;
+
+			transition: all .15s ease-in-out;
+			opacity: 0;
 		}
 	}
 }
@@ -221,5 +285,22 @@
 		&:nth-last-child(2) {
 			transform-origin: 0% 100%;
 		}
+	}
+}
+
+.back-arrow {
+	position: absolute;
+	top: 1.25rem;
+	right: 0;
+	color: $color-white;
+
+	& i {
+		font-size: 3.5rem;
+	}
+
+	&__container {
+		display: inline-block;
+		justify-content: center;
+		align-items: center;
 	}
 }

@@ -24,3 +24,18 @@ a {
 ul {
 	list-style: none;
 }
+
+input,
+input:focus,
+input:active button,
+button:focus,
+button:active,
+select,
+select:focus,
+select:active,
+option,
+option:focus,
+option:active {
+	outline: none;
+	border: none;
+}

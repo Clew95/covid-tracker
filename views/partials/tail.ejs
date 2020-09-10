@@ -1,6 +1,22 @@
+<% if(baseUrl === ''){ %> 
+    <script type="text/javascript" src="/js/landing.js"></script>
+<% } %>
+
 <% if(baseUrl === '/covid' || isARegion){ %>
-<script src="/js/covidTracker.js"></script>
-<script src="/js/chart.js"></script>
+    <script src="/js/covidTracker.js"></script>
+    <script src="/js/chart.js"></script>
+<% } %> 
+    
+<% if(baseUrl === '/covid'){ %>
+    <script>
+        printNationalCharts();
+    </script>
+<% } %> 
+
+<% if(isARegion){ %>
+    <script>
+        printRegionCharts();
+    </script>
 <% } %> 
 </body>
 

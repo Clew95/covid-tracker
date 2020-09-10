@@ -1,0 +1,21 @@
+.form {
+	&--flex {
+		display: inline-flex;
+		justify-content: center;
+		min-width: 250px;
+
+		@include respond(phone) {
+			display: block;
+		}
+	}
+
+	&__province {
+		& select,
+		select:focus,
+		select:active {
+			border: none !important;
+			margin: .75rem;
+			padding: 1rem;
+		}
+	}
+}
