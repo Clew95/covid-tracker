@@ -1073,6 +1073,13 @@ canvas {
     grid-template-columns: repeat(1, 1fr);
     gap: .75rem; } }
 
+.main__provinceDetails {
+  background: linear-gradient(to right bottom, rgba(174, 198, 214, 0.85), rgba(174, 198, 214, 0.85)), url("../images/covid_overview-bg.jpg");
+  background-size: 70%;
+  background-position: top right;
+  height: 100vh;
+  padding: 3rem; }
+
 .province-details {
   position: absolute;
   top: 50%;

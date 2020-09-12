@@ -405,10 +405,10 @@ function printNationalCharts() {
 		options : {
 			layout              : {
 				padding : {
-					left   : 50,
-					right  : 50,
-					top    : 50,
-					bottom : 50
+					left   : 0,
+					right  : 0,
+					top    : 0,
+					bottom : 0
 				}
 			},
 			responsive          : true,
@@ -460,10 +460,10 @@ function printNationalCharts() {
 		options : {
 			layout              : {
 				padding : {
-					left   : 50,
-					right  : 50,
-					top    : 50,
-					bottom : 50
+					left   : 0,
+					right  : 0,
+					top    : 0,
+					bottom : 0
 				}
 			},
 			responsive          : true,
@@ -1027,10 +1027,10 @@ function printRegionCharts() {
 		options : {
 			layout              : {
 				padding : {
-					left   : 50,
-					right  : 50,
-					top    : 50,
-					bottom : 50
+					left   : 0,
+					right  : 0,
+					top    : 0,
+					bottom : 0
 				}
 			},
 			responsive          : true,
