@@ -290,6 +290,24 @@ body {
   margin-left: .5rem;
   border-radius: 3.5px; }
 
+.span--info-def {
+  background: rgba(2, 94, 151, 0.8);
+  color: #fefefe;
+  padding: .25rem .75rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-left: .5rem;
+  border-radius: 3.5px; }
+
+.span--info-geo {
+  background: rgba(17, 161, 253, 0.75);
+  color: #fefefe;
+  padding: .25rem .75rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-left: .5rem;
+  border-radius: 3.5px; }
+
 .u-letterspacing {
   letter-spacing: normal !important; }
   .u-letterspacing--xs {
@@ -1039,7 +1057,7 @@ canvas {
 
 .regioni {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem; }
 
 @media only screen and (max-width: 56.25em) {

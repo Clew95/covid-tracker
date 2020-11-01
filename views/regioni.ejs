@@ -9,8 +9,8 @@
         <section class="regioni">
             <% for(let i = 0; i < lastDay.length; i++) {  %>
             <%let tmp_value = {}%>
+            
             <% for(let k = 0; k < lastDay.length-i-1 ; k++) {  %>
-
             <%  if(parseInt(lastDay[k].nuovi_positivi) < parseInt(lastDay[k+1].nuovi_positivi) ){  %>
             <% tmp_value = lastDay[k]; lastDay[k] = lastDay[k+1]; lastDay[k+1] = tmp_value %>
             <% tmp_value = secondLastDay[k]; secondLastDay[k] = secondLastDay[k+1]; secondLastDay[k+1] = tmp_value %>
@@ -90,6 +90,15 @@
                     </p>
                 </div>
 
+                <% let percent = (lastDay[i].nuovi_positivi *100) / (lastDay[i].tamponi - secondLastDay[i].tamponi)%> 
+                <div class="card__regioni--dflex">
+                    <h4 class="card__regioni__title">Percentuale <i class="fas fa-percent"></i>: </h4>
+                    <p class="card__regioni__data" id="tamponi">
+                        <span class="span--info-def">
+                            +<%= (`${percent.toFixed(2)} %`).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");%>
+                        </span> 
+                    </p>
+                </div>
 
 
             <a href="/regioni/<%= lastDay[i].denominazione_regione.toLowerCase() %>" class="btn__more-details u-margin-top-xs u-margin-bottom-xs">Dettagli <%= lastDay[i].denominazione_regione %></a>
@@ -100,9 +109,9 @@
                 <div class="card__regioni">
                     <h4 class="card__regioni__title">Positivi per area Geografica<i class="fas fa-vial"></i>: </h4>
                     <p class="card__regioni__data" id="positivi_geografici">
-                        <p class="card__regioni__data">Positivi Nord: <%= north_positives %></p>
-                        <p class="card__regioni__data">Positivi Centro: <%= center_positives %></p>
-                        <p class="card__regioni__data">Positivi Sud: <%= south_positives %></p>
+                        <p class="card__regioni__data">Positivi Nord: <span class="span--info-geo">+ <%= north_positives.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %></span></p>
+                        <p class="card__regioni__data">Positivi Centro: <span class="span--info-geo">+ <%= center_positives.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %></span></p>
+                        <p class="card__regioni__data">Positivi Sud: <span class="span--info-geo">+ <%= south_positives.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); %></span></p>
                     </p>
                 </div>
         </section>

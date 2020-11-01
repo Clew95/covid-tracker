@@ -25,7 +25,7 @@ function printNationalCharts() {
 				{
 					label           : 'Morti',
 					data            : covidData['deceduti'],
-					backgroundColor : '#252525cc',
+					backgroundColor : '#252525ee',
 					borderColor     : '#303030'
 				},
 				{
@@ -84,12 +84,12 @@ function printNationalCharts() {
 					backgroundColor : function(context) {
 						let index = context.dataIndex;
 						let value = context.dataset.data[index];
-						return value < 15000 ? '#07c180aa' : value < 30000 ? '#ff9931aa' : '#e65651aa';
+						return value < 15000 ? '#07c180aa' : value < 50000 ? '#ff9931aa' : value < 250000 ? '#e65651aa' : value < 750000 ? '#a60a05bb' : '#303030bb';
 					},
 					borderColor     : function(context) {
 						let index = context.dataIndex;
 						let value = context.dataset.data[index];
-						return value < 15000 ? '#07c180aa' : value < 30000 ? '#ff9931aa' : '#e65651aa';
+						return value < 15000 ? '#07c180aa' : value < 50000 ? '#ff9931aa' : value < 250000 ? '#e65651aa' : value < 750000 ? '#a60a05bb' : '#303030bb';
 					}
 				}
 			]
@@ -136,12 +136,12 @@ function printNationalCharts() {
 					backgroundColor : function(context) {
 						let index = context.dataIndex;
 						let value = context.dataset.data[index];
-						return value < 500 ? '#07c180aa' : value < 1500 ? '#ff9931aa' : '#e65651aa';
+						return value < 5000 ? '#07c180aa' : value < 15000 ? '#ff9931aa' : value < 30000 ? '#e65651aa' : value < 60000 ? '#a60a05bb' : '#303030bb';
 					},
 					borderColor     : function(context) {
 						let index = context.dataIndex;
 						let value = context.dataset.data[index];
-						return value < 500 ? '#07c180aa' : value < 1500 ? '#ff9931aa' : '#e65651aa';
+						return value < 5000 ? '#07c180aa' : value < 15000 ? '#ff9931aa' : value < 30000 ? '#e65651aa' : value < 60000 ? '#a60a05bb' : '#303030bb';
 					}
 				}
 			]
@@ -188,12 +188,12 @@ function printNationalCharts() {
 					backgroundColor : function(context) {
 						let index = context.dataIndex;
 						let value = context.dataset.data[index];
-						return value < 2.5 ? '#07c180aa' : value < 10 ? '#ff9931aa' : '#e65651aa';
+						return value < 5 ? '#07c180aa' : value < 10 ? '#ff9931aa' : value < 15 ? '#e65651aa' : value < 25 ? '#a60a05bb' : '#303030bb';
 					},
 					borderColor     : function(context) {
 						let index = context.dataIndex;
 						let value = context.dataset.data[index];
-						return value < 2.5 ? '#07c180aa' : value < 10 ? '#ff9931aa' : '#e65651aa';
+						return value < 5 ? '#07c180aa' : value < 10 ? '#ff9931aa' : value < 20 ? '#e65651aa' : value < 30 ? '#a60a05bb' : '#303030bb';
 					}
 				}
 			]
@@ -374,7 +374,7 @@ function printNationalCharts() {
 
 							min         : 0, // it is for ignoring negative step.
 							beginAtZero : true,
-							stepSize    : 5000 // if i use this it always set it '1', which look very awkward if it have high value  e.g. '100'.
+							stepSize    : 25000 // if i use this it always set it '1', which look very awkward if it have high value  e.g. '100'.
 						}
 					}
 				]
@@ -949,7 +949,7 @@ function printRegionCharts() {
 
 							min         : 0, // it is for ignoring negative step.
 							beginAtZero : true,
-							stepSize    : 500 // if i use this it always set it '1', which look very awkward if it have high value  e.g. '100'.
+							stepSize    : 5000 // if i use this it always set it '1', which look very awkward if it have high value  e.g. '100'.
 						}
 					}
 				]

@@ -217,4 +217,28 @@ body {
 
 		border-radius: 3.5px;
 	}
+
+	&--info-def {
+		background: rgba($color-tertiary-dark, .8);
+		color: $color-white;
+		padding: .25rem .75rem;
+		font-size: 1.3rem;
+		font-weight: 500;
+
+		margin-left: .5rem;
+
+		border-radius: 3.5px;
+	}
+
+	&--info-geo {
+		background: rgba($color-tertiary, .75);
+		color: $color-white;
+		padding: .25rem .75rem;
+		font-size: 1.3rem;
+		font-weight: 500;
+
+		margin-left: .5rem;
+
+		border-radius: 3.5px;
+	}
 }
