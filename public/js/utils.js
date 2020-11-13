@@ -49,6 +49,17 @@ dataManager.percBuffersPositives = function(buffers, positive) {
 	return percArray;
 };
 
+dataManager.percCasesPositives = function(cases, positive) {
+	let percArray = [];
+
+	for (let idx = 0; idx < cases.length; idx++) {
+		positive[idx] > 0
+			? percArray.push(parseFloat((positive[idx] * 100 / cases[idx]).toFixed(3)))
+			: percArray.push(0);
+	}
+	return percArray;
+};
+
 dataManager.createDataElem = function(DOMelement, dataArray, dates) {
 	for (let idx = 0; idx < dates.length; idx++) {
 		let tmp_string = `${dates[idx]}: ${dataArray[idx]}`;

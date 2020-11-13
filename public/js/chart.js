@@ -7,6 +7,7 @@ let totaleCasi = document.getElementById('totaleCasi').getContext('2d'),
 	healtStatus = document.getElementById('chartHealtStatus').getContext('2d'),
 	pieScreeningDiagnostico = document.getElementById('chartPieScreeningDiagnostico').getContext('2d'),
 	pieHealtStatus = document.getElementById('chartPieHealtStatus').getContext('2d');
+	dailyDeath = document.getElementById('chartDailyDeath').getContext('2d');
 
 //Settimanali
 let nuoviPositiviSettimanale = document.getElementById('nuoviPositivi--settimanale').getContext('2d'),
@@ -488,6 +489,54 @@ function printNationalCharts() {
 			}
 		}
 	});
+
+	let chartDailyDeath = new Chart(dailyDeath, {
+		type    : 'bar',
+		data    : {
+			labels   : covidData['data'],
+			datasets : [
+				{
+					label           : 'Decessi Giornalieri',
+					data            : covidData['deceduti_giornalieri'],
+					backgroundColor : '#bb2323',
+					borderColor     : 'transparent'
+				}
+			]
+		},
+		options : {
+			responsive          : true,
+			maintainAspectRatio : false,
+			elements            : {
+				line : {
+					tension : 0
+				}
+			},
+
+			scales              : {
+				xAxes : [
+					{
+						gridLines : {
+							display    : false,
+							drawBorder : false
+						},
+						ticks     : {
+							beginAtZero  : true
+						}
+					}
+				],
+				yAxes : [
+					{
+						ticks : {
+							callback : function(value) {
+								return numeral(value).format('0,0');
+							}
+						}
+					}
+				]
+			}
+		}
+	});
+
 
 	//SETTIMANALI
 	let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
@@ -1056,25 +1105,16 @@ function printRegionCharts() {
 		}
 	});
 
-	//SETTIMANALI
-	let chartNuoviPositiviSettimanale = new Chart(nuoviPositiviSettimanale, {
+	let chartDailyDeath = new Chart(dailyDeath, {
 		type    : 'bar',
 		data    : {
-			labels   : weeklyData['data'],
+			labels   : covidData['data'],
 			datasets : [
 				{
-					label           : 'Nuovi Positivi',
-					data            : weeklyData['nuovi_positivi'],
-					backgroundColor : function(context) {
-						let index = context.dataIndex;
-						let value = context.dataset.data[index];
-						return value < 5000 ? '#07c180aa' : value < 15000 ? '#ff9931aa' : '#e65651aa';
-					},
-					borderColor     : function(context) {
-						let index = context.dataIndex;
-						let value = context.dataset.data[index];
-						return value < 5000 ? '#07c180aa' : value < 15000 ? '#ff9931aa' : '#e65651aa';
-					}
+					label           : 'Decessi Giornalieri',
+					data            : covidData['deceduti_giornalieri'],
+					backgroundColor : '#bb2323',
+					borderColor     : 'transparent'
 				}
 			]
 		},
@@ -1093,6 +1133,9 @@ function printRegionCharts() {
 						gridLines : {
 							display    : false,
 							drawBorder : false
+						},
+						ticks     : {
+							beginAtZero  : true
 						}
 					}
 				],
@@ -1101,51 +1144,10 @@ function printRegionCharts() {
 						ticks : {
 							callback : function(value) {
 								return numeral(value).format('0,0');
-							}
-						}
-					}
-				]
-			}
-		}
-	});
-
-	let chartTamponiSettimanale = new Chart(tamponiSettimanale, {
-		type    : 'bar',
-		data    : {
-			labels   : weeklyData['data'],
-			datasets : [
-				{
-					label           : 'Tamponi',
-					data            : weeklyData['tamponi_giornalieri'],
-					backgroundColor : '#1d355799',
-					borderColor     : '#eaeaea'
-				}
-			]
-		},
-		options : {
-			responsive          : true,
-			maintainAspectRatio : false,
-			elements            : {
-				line : {
-					tension : 0
-				}
-			},
-
-			scales              : {
-				xAxes : [
-					{
-						gridLines : {
-							display    : false,
-							drawBorder : false
-						}
-					}
-				],
-				yAxes : [
-					{
-						ticks : {
-							callback : function(value) {
-								return numeral(value).format('0,0');
-							}
+							},
+							min         :0, // it is for ignoring negative step.
+							beginAtZero : true,
+							stepSize    : 25
 						}
 					}
 				]
