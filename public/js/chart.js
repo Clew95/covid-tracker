@@ -1,6 +1,7 @@
 let totaleCasi = document.getElementById('totaleCasi').getContext('2d'),
 	totalePositivi = document.getElementById('totalePositivi').getContext('2d'),
 	percTamponiPositivi = document.getElementById('percTamponiPositivi').getContext('2d'),
+	percCasiTestatiPositivi = document.getElementById('percCasiTestatiPositivi').getContext('2d'),
 	nuoviPositivi = document.getElementById('nuoviPositivi').getContext('2d'),
 	casiTestati = document.getElementById('chartCasiTestati').getContext('2d'),
 	tamponi = document.getElementById('chartTamponi').getContext('2d'),
@@ -229,6 +230,60 @@ function printNationalCharts() {
 			}
 		}
 	});
+
+	
+	let chartPercCasiTestatiPositivi = new Chart(percCasiTestatiPositivi, {
+		type    : 'bar',
+		data    : {
+			labels   : covidData['data'],
+			datasets : [
+				{
+					label           : 'Percentuale Casi Testati/Positivi',
+					data            : covidData['casi_testati_perc_positivi'],
+					backgroundColor : function(context) {
+						let index = context.dataIndex;
+						let value = context.dataset.data[index];
+						return value < 7.5 ? '#07c180aa' : value < 15 ? '#ff9931aa' : value < 22.5 ? '#e65651aa' : value < 30 ? '#a60a05bb' : '#303030bb';
+					},
+					borderColor     : function(context) {
+						let index = context.dataIndex;
+						let value = context.dataset.data[index];
+						return value < 7.5 ? '#07c180aa' : value < 15 ? '#ff9931aa' : value < 22.5 ? '#e65651aa' : value < 30 ? '#a60a05bb' : '#303030bb';
+					}
+				}
+			]
+		},
+		options : {
+			responsive          : true,
+			maintainAspectRatio : false,
+			elements            : {
+				line : {
+					tension : 0
+				}
+			},
+
+			scales              : {
+				xAxes : [
+					{
+						gridLines : {
+							display    : false,
+							drawBorder : false
+						}
+					}
+				],
+				yAxes : [
+					{
+						ticks : {
+							callback : function(value) {
+								return value.toString() + '%';
+							}
+						}
+					}
+				]
+			}
+		}
+	});
+
 
 	let chartCasiTestati = new Chart(casiTestati, {
 		type    : 'bar',
@@ -852,6 +907,59 @@ function printRegionCharts() {
 			}
 		}
 	});
+
+	let chartPercCasiTestatiPositivi = new Chart(percCasiTestatiPositivi, {
+		type    : 'bar',
+		data    : {
+			labels   : covidData['data'],
+			datasets : [
+				{
+					label           : 'Percentuale Casi Testati/Positivi',
+					data            : covidData['casi_testati_perc_positivi'],
+					backgroundColor : function(context) {
+						let index = context.dataIndex;
+						let value = context.dataset.data[index];
+						return value < 7.5 ? '#07c180aa' : value < 15 ? '#ff9931aa' : value < 22.5 ? '#e65651aa' : value < 30 ? '#a60a05bb' : '#303030bb';
+					},
+					borderColor     : function(context) {
+						let index = context.dataIndex;
+						let value = context.dataset.data[index];
+						return value < 7.5 ? '#07c180aa' : value < 15 ? '#ff9931aa' : value < 22.5 ? '#e65651aa' : value < 30 ? '#a60a05bb' : '#303030bb';
+					}
+				}
+			]
+		},
+		options : {
+			responsive          : true,
+			maintainAspectRatio : false,
+			elements            : {
+				line : {
+					tension : 0
+				}
+			},
+
+			scales              : {
+				xAxes : [
+					{
+						gridLines : {
+							display    : false,
+							drawBorder : false
+						}
+					}
+				],
+				yAxes : [
+					{
+						ticks : {
+							callback : function(value) {
+								return value.toString() + '%';
+							}
+						}
+					}
+				]
+			}
+		}
+	});
+
 
 	let chartCasiTestati = new Chart(casiTestati, {
 		type    : 'bar',
