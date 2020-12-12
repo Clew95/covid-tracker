@@ -6,7 +6,6 @@ let totaleCasi = document.getElementById('totaleCasi').getContext('2d'),
 	casiTestati = document.getElementById('chartCasiTestati').getContext('2d'),
 	tamponi = document.getElementById('chartTamponi').getContext('2d'),
 	healtStatus = document.getElementById('chartHealtStatus').getContext('2d'),
-	pieScreeningDiagnostico = document.getElementById('chartPieScreeningDiagnostico').getContext('2d'),
 	pieHealtStatus = document.getElementById('chartPieHealtStatus').getContext('2d');
 	dailyDeath = document.getElementById('chartDailyDeath').getContext('2d');
 
@@ -438,58 +437,7 @@ function printNationalCharts() {
 		}
 	});
 
-	let chartPieScreeningDiagnostico = new Chart(pieScreeningDiagnostico, {
-		type    : 'pie',
-		data    : {
-			labels   : [ 'Screening', 'Sospetto Diagnostico' ],
-
-			datasets : [
-				{
-					data            : [
-						(covidData['casi_da_screening'][covidData.data.length - 1] *
-							100 /
-							covidData['totale_casi'][covidData.data.length - 1]).toFixed(1),
-						(covidData['casi_da_sospetto_diagnostico'][covidData.data.length - 1] *
-							100 /
-							covidData['totale_casi'][covidData.data.length - 1]).toFixed(1)
-					],
-					backgroundColor : [ '#7b79eedd', '#ebab51dd' ],
-					borderColor     : '#eaeaea'
-				}
-			]
-		},
-		options : {
-			layout              : {
-				padding : {
-					left   : 0,
-					right  : 0,
-					top    : 0,
-					bottom : 0
-				}
-			},
-			responsive          : true,
-			maintainAspectRatio : false,
-			elements            : {
-				line : {
-					tension : 0
-				}
-			},
-
-			scales              : {
-				xAxes : [
-					{
-						display : false
-					}
-				],
-				yAxes : [
-					{
-						display : false
-					}
-				]
-			}
-		}
-	});
-
+	
 	let chartPieHealtStatus = new Chart(pieHealtStatus, {
 		type    : 'pie',
 		data    : {
@@ -1114,49 +1062,7 @@ function printRegionCharts() {
 		}
 	});
 
-	let chartPieScreeningDiagnostico = new Chart(pieScreeningDiagnostico, {
-		type    : 'pie',
-		data    : {
-			labels   : [ 'Screening', 'Sospetto Diagnostico' ],
-
-			datasets : [
-				{
-					data            : [
-						(covidData['casi_da_screening'][covidData.data.length - 1] *
-							100 /
-							covidData['totale_casi'][covidData.data.length - 1]).toFixed(1),
-						(covidData['casi_da_sospetto_diagnostico'][covidData.data.length - 1] *
-							100 /
-							covidData['totale_casi'][covidData.data.length - 1]).toFixed(1)
-					],
-					backgroundColor : [ '#7b79eedd', '#ebab51dd' ],
-					borderColor     : '#eaeaea'
-				}
-			]
-		},
-		options : {
-			responsive          : true,
-			maintainAspectRatio : false,
-			elements            : {
-				line : {
-					tension : 0
-				}
-			},
-
-			scales              : {
-				xAxes : [
-					{
-						display : false
-					}
-				],
-				yAxes : [
-					{
-						display : false
-					}
-				]
-			}
-		}
-	});
+	
 
 	let chartPieHealtStatus = new Chart(pieHealtStatus, {
 		type    : 'pie',

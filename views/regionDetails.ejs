@@ -136,28 +136,8 @@
                         <span class="span--info"><i class="fas fa-info-circle"></i> Il numero dei casi testati ci dice
                             quante persone sono state sottoposte ad almeno 1 tampone.</span>
                     </div>
-                    <div class="card card--flexfull">
-                        <h4 class="card__title"> Sospetti Diagnostici <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="casi_da_sospetto_diagnostico">
-                            <%= lastUpdate.casi_da_sospetto_diagnostico.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
-                            <span class="span--neutral">
-                                +<%= (parseInt(lastUpdate.casi_da_sospetto_diagnostico) - parseInt(secondLastUpdate.casi_da_sospetto_diagnostico)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
-                            </span>
-                        </p>
-                        <span class="span--info"><i class="fas fa-info-circle"></i> I sospetti diagnostici sono quei
-                            positivi che hanno effettuato un tampone solo dopo aver avuto sintomatologie da Covid</span>
-                    </div>
-                    <div class="card card--flexfull">
-                        <h4 class="card__title">Casi Da Screening <i class="fas fa-vial"></i></h4>
-                        <p class="card__data" id="casi_da_screening">
-                            <%= lastUpdate.casi_da_screening.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> <span
-                                class="span--neutral">
-                                +<%= (parseInt(lastUpdate.casi_da_screening) - parseInt(secondLastUpdate.casi_da_screening)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")%>
-                            </span> </p>
-                        <span class="span--info"><i class="fas fa-info-circle"></i> I casi da screening sono quei
-                            positivi che hanno effettuato test sierologici e tamponi in semplici screening di controllo.
-                            La maggiorparte asintomatici</span>
-                    </div>
+                
+                    
                 </div>
             </div>
 
@@ -228,12 +208,6 @@
                 </div>
 
                 <div class="charts__inline">
-                    <div class="charts__inline__container charts__inline__container--1-of-2">
-                        <h3 class="heading-tertiary">Casi da Screening - Sospetto Diagnostico</h3>
-                        <div class="charts__box">
-                            <canvas id="chartPieScreeningDiagnostico"></canvas>
-                        </div>
-                    </div>
                     <div class="charts__inline__container charts__inline__container--1-of-2">
                         <h3 class="heading-tertiary">Isolamento - Ricoveri - Terapie Intensive</h3>
                         <div class="charts__box">
