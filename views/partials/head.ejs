@@ -49,7 +49,6 @@
         covidData.ricoverati_con_sintomi_giornalieri = dataManager.generateDailyValues(covidData['ricoverati_con_sintomi']);
         covidData.terapia_intensiva_giornalieri = dataManager.generateDailyValues(covidData['terapia_intensiva']);
         covidData.totale_ospedalizzati_giornalieri = dataManager.generateDailyValues(covidData['totale_ospedalizzati']);
-
         covidData.tamponi_perc_positivi = dataManager.percBuffersPositives(covidData['tamponi_giornalieri'], covidData['nuovi_positivi'])
         covidData.casi_testati_perc_positivi = dataManager.percCasesPositives(covidData['casi_testati_giornalieri'], covidData['nuovi_positivi'])
 

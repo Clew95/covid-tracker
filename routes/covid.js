@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
 		.then((response) => {
 			const DATA_BUNCH = response.data;
 			const TODAY = DATA_BUNCH.length - 1;
+			console.log(DATA_BUNCH)
 			const DATA_SETTINGS = {
 				incremento_nuovi_positivi       :
 					parseInt(DATA_BUNCH[TODAY]['nuovi_positivi']) - parseInt(DATA_BUNCH[TODAY - 1]['nuovi_positivi']) >
@@ -19,12 +20,11 @@ router.get('/', (req, res) => {
 				incremento_attualmente_positivi :
 					parseInt(DATA_BUNCH[TODAY]['variazione_totale_positivi']) > 0 ? true : false,
 				incremento_terapia_intensiva    :
-					parseInt(DATA_BUNCH[TODAY]['terapia_intensiva']) -
-						parseInt(DATA_BUNCH[TODAY - 1]['terapia_intensiva']) >
-					0
+					parseInt(DATA_BUNCH[TODAY]['terapia_intensiva']) - parseInt(DATA_BUNCH[TODAY - 1]['terapia_intensiva']) > 0
 						? true
 						: false,
-				isARegion                       : false
+				isARegion : false
+
 			};
 
 			res.render('covid', {
